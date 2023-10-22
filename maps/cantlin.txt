@@ -1,0 +1,73 @@
+type:map═fff11ffffffff11hcccccccc1fff
+f1111f11f111f11ccffffffc1f1f
+fff11f11f111f1188f11f1fc1f1f
+11111ffgf1fff1111111g1fc1111
+11111f111111f1111111g1fc1fff
+fff11ff1ff11f1188f11f1fc1f1f
+f1g11ciccf11f11ccffffffc1fgf
+fff11ccccffff11ccccccccc1f1f
+111111111111111111111111111f
+111111111111111111111111ff1f
+fff11fff117kkk777711fffff11f
+f1g11g1f11kkkkk77711f1f1g11f
+fff11fff11kk8kkk7711g1f1f11f
+f1g11111117kkk7kk711ffffffff
+fff1ffff11777777e71111111111
+f111f11f11777777k71111111111
+f111111f1177777kk711fff11fff
+ffffffff11777kkkkk11g1f1111f
+111111111177kkk8kk11fff11f1f
+11111111117kkk88kk1111111fff
+fff1ffff117kk88kk711fff11111
+fccccccf1177kkkk7711f1ffff1f
+fccccccf11777kk77711fgf1111f
+fffffccf111f1111f111f1ff1fff
+f111fcc11ffff11ffff111f11f1f
+f111gccf1f44444444f1f1111g1f
+f111fccf1f4ffffff4f1f1f11f1f
+ffffffff1f44411444f1ffffffff
+111111111ffffffffff111111111║type:roof═1110000000000000000000000111
+1100000000000000000000000111
+1110000000000000000000000101
+0000000000000000000000000000
+0000000000000000000000000000
+0000000000000000000000000000
+0000000000000000000000000000
+0000000000000000000000000000
+0000000000000000000000000000
+0000000000000000000000000000
+0000000000111111110000000000
+0000000000111111110000000000
+0000000000111111110000000000
+0000000000111111110000000000
+0000000000111111110000000000
+0000000000111111110000000000
+0000000000111111110000000000
+0000000000111111110000000000
+0000000000111111110000000000
+0000000000111111110000000000
+0000000000111111110000000000
+0000000000111111110000000000
+0000000000111111110000000000
+0000000000000000000000000000
+0000000000000000000000000000
+0000000000000000000000000000
+0000000000000000000000000000
+0000000000000000000000000000
+0000000000000000000000000000║type:exit,exit:edge,map:outworld,x:-1,y:-1,targetX:77,targetY:104
+║type:npc,character:merchant,name:Innkeeper,x:7,y:2═action:Talk;say:Welcome to the Traveler’s Inn. Room and board is 100 GOLD per night.;═action:Inn;ask:Dost thou want a room?;═no:Inn;say:Okay.Good-bye, traveler.═yes:Inn;if:player.gold<100;say:Thou hast not enough gold.;else;sub:player.gold=100;setto:player.hp=playerMax.hp;setto:player.mp=playerMax.mp;say:Thou hast a good rest.;
+║type:npc,character:merchant,name:Armory Shop,x:21,y:4═action:Talk;say:We deal in weapons and armor.;═action:Buy;shop:Bamboo Pole,Club,Copper Sword,Leather Armor,Chain Mail,Large Shield;
+║type:npc,character:merchant,name:Armory Shop,x:26,y:25═action:Talk;say:We deal in weapons and armor.;═action:Buy;shop:Hand Axe,Broad Sword,Full Plate,Magic Armor;
+║type:npc,character:knight,name:Armory Shop,x:23,y:11═action:Talk;say:We deal in weapons and armor.;═action:Buy;shop:Flame Sword,Silver Shield;
+║type:npc,character:merchant,name:Item Shop,x:6,y:11═action:Talk;say:Welcome. We deal in tools.;═action:Buy;shop:Dragon's Scale,Wings;
+║type:npc,character:man,name:Item Shop,x:1,y:6═action:Talk;say:Welcome. We deal in tools.;═action:Buy;shop:Herb,Torch;
+║type:npc,character:woman,name:Some Gal,x:21,y:12═action:Talk;say:Fairy Water keeps the Dragonlord’s minions away.;═action:Buy;ask:Will thou buy some Fairy Water for 38 GOLD?;═no:Buy;say:All the best to thee.;═yes:Buy;if:player.gold<38;say:Thou hast not enough gold.;else;sub:player.gold=38;give:Fairy Water;say:I thank thee.;
+║type:npc,character:wiseguy,name:Key Seller,x:26,y:5═action:Talk;say:Magic keys! They will unlock any door.;═action:Buy;ask:Dost thou wish to purchase one for 98 GOLD?;═no:Buy;say:I will see thee later.═yes:Buy;if:player.gold<98;say:Thou hast not enough money. I will see thee later.;else;sub:player.gold=98;add:player.keys=1;say:Here, take this key.;
+║type:npc,character:wiseguy,name:Curse Lifter,x:14,y:15═action:Talk;say:To learn how proof may be obtained that thy ancestor was the great Erdrick, see a man in this very town.;
+║type:npc,character:wiseguy,name:Curse Lifter,x:13,y:27,walk:true═action:Talk;say:Let us wish the warrior well! May the light be thy strength! Thou may go and search. From Tantegel Castle travel 70 leagues to the south and 40 to the east.;
+║type:npc,character:wiseguy,name:Curse Lifter,x:21,y:21═action:Talk;say:’Tis said that Erdrick’s sword could cleave steel.;
+║type:npc,character:man,name:Nester,x:19,y:17,walk:true═action:Talk;say: I’m Nester. Hey, where am I? No, don’t tell me!;
+║type:npc,character:woman,name:Some Gal,x:9,y:13,walk:true═action:Talk;say:I know nothing.;
+║type:npc,character:woman,name:Some Gal,x:3,y:13,walk:true═action:Talk;say:What shall I get for thy dinner?;
+║type:npc,character:knight,name:Inn Patrol,x:28,y:13,walk:true═action:Talk;say:See King Lorik when thy experience levels are raised.;
+║type:npc,character:merchant,name:Inn Patrol,x:1,y:11,walk:true═action:Talk;say:Come buy my radishes! They are fresh and cheap. Buy thy radishes today!;

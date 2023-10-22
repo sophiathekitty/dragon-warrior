@@ -1,0 +1,79 @@
+type:map═fffffffffffffc11cfffffffffffff
+f88877778888cc11cc88888888888f
+f887777778787c11cff8ffffffff8f
+f87fffff777777117778f11f1kkf8f
+f87f111f77777711c777f11g1kkf8f
+f87f1g1f77777711c787f11f1kkf8f
+f87ff1ff77cc7711cc87f1ffffff7f
+f87771h77cccc711c787777877877f
+f8877177cc8cc711c777778888887f
+f8777177c888cc1177fffffffff87f
+f877717ccc888c1177f111f111f87f
+f777717cc888c71177f111f111f77f
+f8877177ccccc71177ff1fff1ff78f
+8877717777cc771177771777177788
+111111111111111111111111111111
+111111111111111111111111111111
+8877777717777871777877777kkk88
+f887777717778871788887kkkkkkk8
+f87777771778877188877kkkkkkkkk
+f77777fi1f7777717877kkkkkkkkkk
+f7ffffff1fff7771877kkkk77kkkkk
+f7f11f111g1f777177kk7777777kkk
+f7f11f1fffff787111e7777777777k
+f7f11111111f787777k77f1ffff87k
+f7f1ff1ff11f78877kk77f11f1f87k
+f7f11f11f11f88887kkk7f11g1f7kk
+f7f11f11f11f78877kk77f11f1f78k
+f7ffffffffff7877kkkk7ffffff88k
+f77777777777777kkkkk77777kk8kk
+fffffffffffffffkkkkkkkkkkkkkkk║type:roof═000000000000000000000000000000
+000000000000000000000000000000
+000000000000000000001111111100
+000000000000000000001111111100
+000000000000000000001111111100
+000000000000000000001111111100
+000000000000000000001011111100
+000000000000000000000000000000
+000000000000000000000000000000
+000000000000000000000000000000
+000000000000000000000000000000
+000000000000000000000000000000
+000000000000000000000000000000
+000000000000000000000000000000
+000000000000000000000000000000
+000000000000000000000000000000
+000000000000000000000000000000
+000000000000000000000000000000
+000000000000000000000000000000
+000000000000000000000000000000
+000000000000000000000000000000
+000000000000000000000000000000
+000000000000000000000000000000
+000000000000000000000101111000
+000000000000000000000111111000
+000000000000000000000111111000
+000000000000000000000111111000
+000000000000000000000111111000
+000000000000000000000000000000
+000000000000000000000000000000║type:npc,character:man,name:Some Guy,x:1,y:13═action:Talk;say:Thou art most welcome in Brecconary.;
+║type:npc,character:woman,name:Some Gal,x:4,y:7═action:Talk;say:Welcome! Enter the shop and speak to its keeper across the desk.;
+║type:npc,character:merchant,name:Armory Shop,x:5,y:4═action:Talk;say:We deal in weapons and armor.;═action:Buy;shop:Bamboo Pole,Club,Copper Sword,Clothes,Leather Armor,Small Shield;
+║type:npc,character:merchant,name:Innkeeper,x:10,y:21═action:Talk;say:Welcome to the Traveler’s Inn. Room and board is 6 GOLD per night.;═action:Inn;ask:Dost thou want a room?;═no:Inn;say:Okay.Good-bye, traveler.═yes:Inn;if:player.gold<6;say:Thou hast not enough gold.;else;sub:player.gold=6;setto:player.hp=playerMax.hp;setto:player.mp=playerMax.mp;say:Thou hast a good rest.;
+║type:npc,character:woman,name:Some Gal,x:24,y:4═action:Talk;say:Fairy Water keeps the Dragonlord’s minions away.;═action:Buy;ask:Will thou buy some Fairy Water for 38 GOLD?;═no:Buy;say:All the best to thee.;═yes:Buy;if:player.gold<38;say:Thou hast not enough gold.;else;sub:player.gold=38;give:Fairy Water;say:I thank thee.;
+║type:npc,character:soldier,name:Soldier,x:28,y:1═action:Talk;say:Beware the bridges! Danger grows when thou crosses.;
+║type:npc,character:soldier,name:Inn Patrol,x:3,y:22,walk:true═action:Talk;say:Art thou the descendant of Erdrick? Hast thou any proof?;
+║type:npc,character:soldier,name:Town Patrol,x:19,y:16,walk:true═action:Talk;say:Many have been the warriors who have perished on this quest. But for thee I wish success, Hero.;
+║type:npc,character:woman,name:Gwaelin,x:13,y:27,walk:true═action:Talk;say:No, I am not Princess Gwaelin.;
+║type:npc,character:man,name:Some Guy,x:20,y:10═action:Talk;say:There is a town where magic keys can be purchased.;
+║type:npc,character:wiseguy,name:Curse Lifter,x:24,y:10═action:Talk;say:If thou art cursed, come again.;
+║type:npc,character:man,name:Some Guy,x:13,y:22,walk:true═action:Talk;say:Go north to the seashore, then follow the coastline west until thou hath reached Garinham.;
+║type:npc,character:merchant,name:Item Shop,x:25,y:25═action:Talk;say:Welcome. We deal in tools. What can I do for thee?;═action:Buy;shop:Herb,Torch,Dragon's Scale;
+║type:npc,character:man,name:Some Guy,x:20,y:22,walk:true═action:Talk;say:Enter where thou can.;
+║type:npc,character:man,name:Some Guy,x:20,y:23,walk:true═action:Talk;say:Within sight of Tantegel Castle to the south is Charlock, the fortress of the Dragonlord.;
+║type:npc,character:knight,name:Inn Patrol,x:10,y:26,walk:true═action:Talk;say:Tell King Lorik that the search for his daughter hath failed. I am almost gone....;
+║type:npc,character:knight,name:Inn Patrol,x:28,y:13,walk:true═action:Talk;say:See King Lorik when thy experience levels are raised.;
+║type:npc,character:merchant,name:Inn Patrol,x:21,y:13,walk:true═action:Talk;say:Please, save us from the minions of the Dragonlord.;
+║type:npc,character:door,name:door,x:5,y:23═visible:bools.door4:true═action:Door;if:player.keys>0;sub:player.keys=1;set:bools.door4=false;set:visible=false;else;say:Thou hast not a key to use.;
+║type:npc,character:door,name:door,x:21,y:6═visible:bools.door5:true═action:Door;if:player.keys>0;sub:player.keys=1;set:bools.door5=false;set:visible=false;else;say:Thou hast not a key to use.;
+║type:exit,exit:edge,map:outworld,x:-1,y:-1,targetX:51,targetY:44

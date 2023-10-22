@@ -1,0 +1,12 @@
+type:map,dark:true═ffffffffffff
+f31f1111ff1f
+ff1f1ff1111f
+f1111111ff1f
+ff1fff1ff11f
+f11f111f11ff
+f1ffff111fff
+f111111f1f1f
+fff1f1ff111f
+ f11111f1f1f
+ f1f1f111f2f
+ fffffffffff║type:exit,exit:edge,map:outworld,x:1,y:1,targetX:31,targetY:15║type:exit,exit:edge,map:erdrickcaveB,x:10,y:10,targetX:10,targetY:9

@@ -1,0 +1,14 @@
+type:map═ffffffffffff
+ff11111111ff
+f1111111111f
+f11ffffff11f
+f11f11f1f11f
+f11f1111111f
+f11f11f1f11f
+f11ffffff11f
+f1111111111f
+ff11111111ff
+fffff31fffff
+ffffffffffff║type:npc,character:chest,name:chest,x:4,y:5═action:Take;add:player.gold=9;set:bools.chest3=false;set:visible=false;say:thou hast gained 9 gold;
+║type:npc,character:wiseguy,name:Curse Lifter,x:5,y:5═action:Talk;say:Thy bravery must be proven. Thus, I propose a test. There is a Silver Harp that beckons to the creatures of the Dragonlord. Bring this to me and I will reward thee with the Staff of Rain.;
+║type:exit,exit:edge,map:outworld,x:5,y:10,targetX:84,targetY:4

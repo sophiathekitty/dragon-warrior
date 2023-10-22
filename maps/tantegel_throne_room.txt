@@ -1,0 +1,20 @@
+type:map,edges:0═000000000000
+0ffffffffff0
+0f11111111f0
+0f1GGGGGG1f0
+0f1G1GG1G1f0
+0f11111111f0
+0f11111111f0
+0f11111111f0
+0ffff1fffff0
+0f11111112f0
+0ffffffffff0
+000000000000║type:npc,character:king,name:King Lorik,x:4,y:4═action:Talk;if:bools.intro=false;set:bools.intro=true;say:Descendant of Erdrick, listen now to my words. It is told that in ages past Erdrick fought demons with a Ball of Light. Then came the Dragonlord who stole the precious globe and hid it in the darkness. Now, Hero, thou must help us recover the Ball of Light and restore peace to our land. The Dragonlord must be defeated. Take now whatever thou may find in these Treasure Chests to aid thee in thy quest. Then speak with the guards, for they have much knowledge that may aid thee. May the light shine upon thee, Hero.;elseif:bools.intro2=false;say:When thou art finished preparing for thy departure, please see me. I shall wait.;else;say:I am greatly pleased that thou hast returned, Hero.;═action:Save;SaveGame;
+║type:npc,character:knight,name:Sir Left,x:4,y:7,direction:up═action:Talk;say:East of this castle is a town where armor, weapons, and many other items may be purchased. Return to the Inn for a rest if thou art wounded in battle, Hero. Sleep heals all.;
+║type:npc,character:knight,name:Sir Right,x:6,y:7,direction:up═action:Talk;say:If thou hast collected all the Treasure Chests, a key will be found. Once used, the key will disappear, but the door will be open and thou may pass through.;
+║type:npc,character:knight,name:Sir Walkin,x:7,y:7,direction:up,walk:true═action:Talk;ask:Dost thou know about Princess Gwaelin?;═no:Talk;say:Half a year now hath passed since the Princess was kidnapped by the enemy. Never does the King speak of it, but he must be suffering much. Hero, please save the Princess.;═yes:Talk;say:Hero, please save the Princess.;
+║type:npc,character:chest,name:chest,x:5,y:5═visible:bools.chest1:true═action:Take;add:player.gold=120;set:bools.chest1=false;set:visible=false;say:thou hast gained 120 gold;
+║type:npc,character:chest,name:chest,x:6,y:5═visible:bools.chest2:true═action:Take;give:torch;set:bools.chest2=false;set:visible=false;say:thou hast gained a torch;
+║type:npc,character:chest,name:chest,x:7,y:2═visible:bools.chest3:true═action:Take;add:player.keys=1;set:bools.chest3=false;set:visible=false;say:thou hast gained a key;
+║type:npc,character:door,name:door,x:5,y:8═visible:bools.door1:true═action:Door;if:player.keys>0;sub:player.keys=1;set:bools.door1=false;set:bools.intro2=true;set:visible=false;else;say:Thou hast not a key to use.;
+║type:exit,exit:stairs,map:tantegel,x:9,y:9,targetX:7,targetY:7

@@ -1,0 +1,12 @@
+type:map,dark:true═fffffffffffff
+ffffff1ffffff
+fffff111fffff
+ffff11f11ffff
+fff11fff11fff
+f311ff31111ff
+fff11fff11fff
+ffff11f11ffff
+fffff111fffff
+ffffff1ffffff
+fffffffffffff║type:exit,exit:G,map:garingraveC,x:1,y:5,targetX:10,targetY:6
+║type:exit,exit:H,map:garingraveC,x:6,y:5,targetX:11,targetY:10

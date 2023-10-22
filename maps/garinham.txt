@@ -1,0 +1,49 @@
+type:map═kkf1111111111111kkf2
+kkf1ccccccccccc11e11
+fff1fffffffffffffkff
+f111111111111ffffkkk
+f1fffff111111kkkfkff
+f1f111f111111fkkkkkf
+f1ff1ff111111fkfkfkf
+f111111111111111111f
+f111111111111111111f
+ffffffffffffffff111f
+kf11f1f88888888ff1ff
+kf11g1f8871117888188
+ff1ffff8771811111111
+77177777111117717777
+11111111171777i1fff8
+88871787771h11f1g1ff
+ffff1f8cff1ff7f1ffff
+kf111ffcf1g1f7f1f11f
+kfffffkff111f7f1111f
+kkkkkkkkfffff7ffffff║type:roof═00000000000000000000
+00000000000000000000
+00000000000000000000
+11111111111111111111
+11111111111111111111
+11111111111111111111
+11111111111111111111
+11111111111111111111
+11111111111111111111
+11111111111111111111
+00000000000000011011
+00000000000000000000
+00000000000000000000
+00000000000000000000
+00000000000000000000
+00000000000000000000
+00000000000000000000
+00000000000000000000
+00000000000000000000
+00000000000000000000║type:npc,character:merchant,name:Innkeeper,x:17,y:15═action:Talk;say:Welcome to the Traveler’s Inn. Room and board is 25 GOLD per night.;═action:Inn;ask:Dost thou want a room?;═no:Inn;say:Okay.Good-bye, traveler.═yes:Inn;if:player.gold<25;say:Thou hast not enough gold.;else;sub:player.gold=25;setto:player.hp=playerMax.hp;setto:player.mp=playerMax.mp;say:Thou hast a good rest.;
+║type:npc,character:wiseguy,name:Old Talker,x:2,y:10═action:Talk;say:Garin, a wandering minstrel of legendary fame, is said to have built this town.;
+║type:npc,character:wiseguy,name:Old Talker,x:2,y:17═action:Talk;say:Many believe that Princess Gwaelin is hidden away in a cave.;
+║type:npc,character:man,name:Some Guy,x:17,y:11,walk:true═action:Talk;say:It is said that the Princess was kidnapped and taken eastward.;
+║type:npc,character:woman,name:Some Gal,x:11,y:12,walk:true═action:Talk;say:Welcome to Garinham. May thy stay be a peaceful one.;
+║type:npc,character:soldier,name:Town Patrol,x:7,y:17,walk:true═action:Talk;ask:I have heard of one named Nester. Dost thou know such a one?;═yes:Talk;say:NERD!;═no:Talk;say:Nester was a character from a recurring comic in Nintendo Power where he and his friend Howard would participate in the story of games featured in the magazine. In Volume 10 Nester visited Alefgard.;
+║type:npc,character:merchant,name:Armory Shop,x:10,y:18═action:Talk;say:We deal in weapons and armor.;═action:Buy;shop:Club,Copper Sword,Hand Axe,Leather Armor,Chain Mail,Half Plate,Large Shield;
+║type:npc,character:merchant,name:Item Shop,x:5,y:11═action:Talk;say:Welcome. We deal in tools.;═action:Buy;shop:Herb,Torch,Dragon's Scale;
+║type:npc,character:door,name:door,x:17,y:10═visible:bools.door6:true═action:Door;if:player.keys>0;sub:player.keys=1;set:bools.door6=false;set:visible=false;else;say:Thou hast not a key to use.;
+║type:exit,exit:edge,map:outworld,x:-1,y:-1,targetX:5,targetY:5
+║type:exit,exit:edge,map:garingraveA,x:19,y:0,targetX:7,targetY:12

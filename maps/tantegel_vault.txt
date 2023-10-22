@@ -1,0 +1,15 @@
+type:map═ffffffffffffff
+ffffffffffffff
+fff11111111fff
+ff1f111111f1ff
+ff1111111111ff
+ff111ffff111ff
+ff311f11f111ff
+ff111f11f111ff
+ff111f11f111ff
+ff1111111111ff
+ff1f111111f1ff
+fff11111111fff
+ffffffffffffff
+ffffffffffffff
+║type:exit,exit:stairs,map:tantegel,x:2,y:6,targetX:29,targetY:28

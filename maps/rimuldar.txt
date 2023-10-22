@@ -1,0 +1,76 @@
+type:map═777777777777777777777777777777
+777kkkkkkkkkkkkkkk777777777777
+7kkkfff8877777777kkkk777777777
+7e7711f8777778887778kkkk777777
+kk7711f7777111111118877kkkk777
+k8f111f787717871cc17777788k777
+k8ffgff77ff1fff1ff177fffffk777
+k7f111f77f111f111f177f111fkk77
+k7fffff77f111f111f187ffgffck77
+k77777777fffffffff1111111fck77
+k777777kk87777787717hf111fck77
+k78kkkkkkk77711111117f111fckk7
+kc7kk888kk78111111117fffff87k7
+kckk8778k7711177771177778888k7
+kccc878kk7111778771111111111e1
+kckk77kk77117788771111111111e1
+kc7kkkk777117887fi1778877888k7
+k78777787711778fff1fffffff87k7
+k77777888711788f1g1f11f11f7kk7
+k7ffffffff11f78fff1111111f7k77
+k7f111111111f77f111111f11f8k77
+k7f1111f1111f78ff1fff1ffff8k77
+k7fff11f1111f7cf111f11f11fkk77
+k8f1g1111ff1f7cf111f11111fk777
+k8fff11f1111f7cfffffffffffk777
+kkf1111f1111f8cccc87788kkkk777
+7kf111111111f8877877kkkk777777
+7kfffffffffff8888kkkk777777777
+777kkkkkkkkkkkkkkk777777777777
+777777777777777777777777777777║type:roof═000000000000000000000000000000
+000000000000000000000000000000
+000011100000000000000000000000
+000001100000000000000000000000
+000011100000000000000000000000
+001111100000000000000000000000
+001111100000000000000000000000
+001111100000000000000000000000
+001111100000000000000000000000
+000000000000000000000000000000
+000000000000000000000000000000
+000000000000000000000000000000
+000000000000000000000000000000
+000000000000000000000000000000
+000000000000000000000000000000
+000000000000000000000000000000
+000000000000000000000000000000
+000000000000000000000000000000
+000000000000000000000000000000
+001111111100100000000000000000
+001111111111100000000000000000
+001111111111100000000000000000
+001111111111100000000000000000
+001111111111100000000000000000
+001111111111100000000000000000
+001111111111100000000000000000
+001111111111100000000000000000
+001111111111100000000000000000
+000000000000000000000000000000
+000000000000000000000000000000║type:exit,exit:edge,map:outworld,x:-1,y:-1,targetX:104,targetY:75
+║type:npc,character:merchant,name:Innkeeper,x:16,y:18═action:Talk;say:Welcome to the Traveler’s Inn. Room and board is 55 GOLD per night.;═action:Inn;ask:Dost thou want a room?;═no:Inn;say:Okay.Good-bye, traveler.═yes:Inn;if:player.gold<55;say:Thou hast not enough gold.;else;sub:player.gold=55;setto:player.hp=playerMax.hp;setto:player.mp=playerMax.mp;say:Thou hast a good rest.;
+║type:npc,character:merchant,name:Armory Shop,x:23,y:7═action:Talk;say:We deal in weapons and armor.;═action:Buy;shop:Copper Sword,Hand Axe,Broad Sword, Half Plate, Full Plate,Magic Plate;
+║type:npc,character:wiseguy,name:Key Seller,x:4,y:7═action:Talk;say:Magic keys! They will unlock any door.;═action:Buy;ask:Dost thou wish to purchase one for 53 GOLD?;═no:Buy;say:I will see thee later.═yes:Buy;if:player.gold<53;say:Thou hast not enough money. I will see thee later.;else;sub:player.gold=53;add:player.keys=1;say:Here, take this key.;
+║type:npc,character:wiseguy,name:Island Guy,x:6,y:13═action:Talk;say:Over the western part of this island Erdrick created a rainbow. ’Tis also said that he entered the darkness from a hidden entrance in the room of the Dragonlord.;
+║type:npc,character:wiseguy,name:Magic Man,x:3,y:23═action:Talk;ask:This is a magic place. Hast thou found a magic temple;═yes:Talk;say:In this temple do the sun and rain meet.;═no:Talk;say:Go to the south.;
+║type:npc,character:wiseguy,name:Howard,x:20,y:23,walk:true═action:Talk;say:Good day, I am Howard. Four steps south of the bath in Kol thou shalt find a magic item.;
+║type:npc,character:man,name:Some Guy,x:11,y:8═action:Talk;say:Art thou the descendant of Erdrick? Hast thou any proof?;
+║type:npc,character:woman,name:Some Gal,x:15,y:8═action:Talk;say:Who art thou? Leave at once or I will call my friends.;
+║type:npc,character:man,name:Some Guy,x:13,y:12,walk:true═action:Talk;say:Welcome to the town of Rimuldar.;
+║type:npc,character:woman,name:Some Gal,x:22,y:14,walk:true═action:Talk;say:No, I have no tomatoes. I have no tomatoes today.;
+║type:npc,character:man,name:Some Guy,x:27,y:0,walk:true═action:Talk;say:I am Orwick, and I am waiting for my girl friend.;
+║type:npc,character:woman,name:Some Gal,x:0,y:26═action:Talk;say:Orwick is late again. I’m starving.;
+║type:npc,character:knight,name:Inn Patrol,x:8,y:15,walk:true═action:Talk;say: Thou shalt find the Stones of Sunlight in Tantegel Castle, if thou has not found them yet.;
+║type:npc,character:soldier,name:Armor Patrol,x:23,y:11,walk:true═action:Talk;say:The scales of the Dragonlord are as hard as steel.;
+║type:npc,character:soldier,name:Inn Patrol,x:3,y:22,walk:true═action:Talk;say:You are Hero? It has been long since last we met.;
+║type:npc,character:soldier,name:South Patrol,x:15,y:26,walk:true═action:Talk;say:Art thou the descendant of Erdrick? Hast thou any proof?;
+║type:npc,character:soldier,name:House Patrol,x:3,y:26,walk:true═action:Talk;say:In this world is there any sword that can pierce the scales of the Dragonlord?;

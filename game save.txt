@@ -1,0 +1,23 @@
+║save:default
+═level:1,
+hp:15,
+mp:0,
+strength:4,
+agility:4,
+xp:0,
+gold:0,
+keys:0
+═level:30,
+hp:15,
+mp:0,
+strength:4,
+agility:4,
+xp:7,
+gold:3300,
+keys:100
+═weapon:Bamboo Pole,
+shield:,
+armor:,
+ring:,
+necklace:,
+belt:

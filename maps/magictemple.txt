@@ -1,0 +1,13 @@
+type:map═ffffffffffff
+ff111111111f
+ff11f1f1f11f
+ff1ff111ff1f
+ff111fff111f
+f31f1f1f1f1f
+f11f111f1f1f
+ff111fff111f
+ff1ff111ff1f
+ff11f1f1f11f
+ff111111111f
+ffffffffffff║type:npc,character:wiseguy,name:Old Guy,x:5,y:6═action:Talk;say:oh sorry i haven't got this old guy setup yet... woops....;
+║type:exit,exit:stairs,map:outworld,x:1,y:5,targetX:111,targetY:112
