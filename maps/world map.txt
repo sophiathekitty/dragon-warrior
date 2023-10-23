@@ -128,7 +128,7 @@ kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
 ║type:exit,exit:town,map:brecconary,x:51,y:44,targetX:0,targetY:15
 ║type:exit,exit:town,map:kol,x:107,y:13,targetX:19,targetY:23
 ║type:exit,exit:town,map:garinham,x:5,y:5,targetX:19,targetY:12
-║type:exit,exit:town,map:erdrickcaveA,x:31,y:15,targetX:2,targetY:1
+║type:exit,exit:town,map:erdrickcaveA,x:31,y:15,targetX:1,targetY:1
 ║type:exit,exit:town,map:raincave,x:84,y:4,targetX:5,targetY:10
 ║type:exit,exit:town,map:swampcave,x:107,y:47,targetX:1,targetY:1
 ║type:exit,exit:town,map:swampcave,x:107,y:52,targetX:1,targetY:27

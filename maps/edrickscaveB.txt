@@ -9,4 +9,4 @@ f1ff1f11111f
 f1111ff1ff1f
 ff1f11f1f11f
 f111f111f31f
-ffffffffffff║type:exit,exit:edge,map:erdrickcaveA,x:9,y:10,targetX:10,targetY:9
+ffffffffffff║type:exit,exit:edge,map:erdrickcaveA,x:9,y:10,targetX:10,targetY:10

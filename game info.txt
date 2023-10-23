@@ -1,7 +1,225 @@
-type:game,title:Dragon Warrior,name:Dragon,engine:rpg║type:player═level:1,hp:15,mp:0,strength:4,agility:4,xp:0,gold:0,keys:0═weapon:Bamboo Pole,shield:,armor:,ring:,necklace:,belt:═map:throne,x:2,y:5║type:item,item_type:weapon═name:Bamboo Pole,offense:2,cost:10═name:Club,offense:4,cost:10═name:Copper Sword,offense:10,cost:180═name:Hand Axe,offense:15,cost:560═name:Broad Sword,offense:20,cost:1500═name:Flame Sword,offense:28,cost:9800═name:Erdrick's Sword,offense:40,cost:0║type:item,item_type:armor═name:Clothes,defense:2,cost:20═name:Leather Armor,defense:4,cost:70═name:Chain Mail,defense:10,cost:300═name:Half Plate,defense:16,cost:1000═name:Full Plate,defense:24,cost:3000═name:Magic Armor,defense:24,cost:7700═name:Erdrick's Armor,defense:28,cost:0║type:item,item_type:shield═name:Small Shield,defense:4,cost:90═name:Large Shield,defense:10,cost:800═name:Silver Shield,defense:20,cost:14800║type:item,item_type:use═name:Herb,cost:24,effect:herb═name:Wings,cost:70,effect:return_home═name:Torch,cost:8,effect:torch═name:Fairy Water,cost:38,effect:avoid_encounters═name:Light Orb,cost:0═name:Erdrick's Tablet,cost:0,effect:read_tablet═name:Silver Harp,cost:0,effect:silver_harp═name:Rain Staff,cost:0═name:Sunstone,cost:0═name:Gwaelin's Love,cost:0effect:distance_from_castle═name:Erdrick's Token,cost:0═name:Rainbow Drop,cost:0║type:item,item_type:necklace═name:Dragon's Scale,defense:2,cost:20═name:Cursed Necklace,cost:1200║type:item,item_type:ring═name:Fighter's Ring,offense:2,cost:15║type:item,item_type:belt═name:Cursed Belt,cost:180║type:action,name:magic,level:player.level,cost:player.mp═name:Heal,level:3,cost:3,effect:cast_heal═name:Hurt,level:4,cost:2,combat:true,effect:cast_hurt═name:Sleep,level:7,cost:2,combat:true,effect:cast_sleep═name:Radiant,level:9,cost:2,combat:false,effect:cast_radiant═name:StopSpell,level:10,cost:2,combat:true,effect:cast_stop═name:Outside,level:12,cost:6,combat:false,effect:cast_outside═name:Return,level:13,cost:8,combat:false,effect:return_home═name:Repel,level:15,cost:2,combat:false,effect:avoid_encounters═name:HealMore,level:17,cost:8,effect:cast_healmore═name:HurtMore,level:19,cost:5,combat:true,effect:cast_hurtmore
+type:game,title:Dragon Warrior,name:Dragon,engine:rpg
+║type:player═
+
+level:1,
+hp:15,mp:0,
+strength:4,
+agility:4,
+xp:0,
+gold:0,
+keys:0═
+
+weapon:Bamboo Pole,
+shield:,
+armor:,
+ring:,
+necklace:,
+belt:═
+
+map:throne,
+x:2,
+y:5
 
 
 
+
+║type:item,item_type:weapon═
+
+name:Bamboo Pole,
+offense:2,
+cost:10═
+
+name:Club,
+offense:4,
+cost:10═
+
+name:Copper Sword,
+offense:10,
+cost:180═
+
+name:Hand Axe,
+offense:15,
+cost:560═
+
+name:Broad Sword,
+offense:20,
+cost:1500═
+
+name:Flame Sword,
+offense:28,
+cost:9800═
+
+name:Erdrick's Sword,
+offense:40
+
+
+║type:item,item_type:armor═
+
+name:Clothes,
+defense:2,
+cost:20═
+
+name:Leather Armor,
+defense:4,
+cost:70═
+
+name:Chain Mail,
+defense:10,
+cost:300═
+
+name:Half Plate,
+defense:16,
+cost:1000═
+
+name:Full Plate,
+defense:24,
+cost:3000═
+
+name:Magic Armor,
+defense:24,
+cost:7700═
+
+name:Erdrick's Armor,
+defense:28
+
+
+║type:item,item_type:shield═
+
+name:Small Shield,
+defense:4,
+cost:90═
+
+name:Large Shield,
+defense:10,
+cost:800═
+
+name:Silver Shield,
+defense:20,
+cost:14800
+
+
+║type:item,item_type:use═
+
+name:Herb,
+cost:24,
+effect:herb═
+
+name:Wings,
+cost:70,
+effect:return_home═
+
+name:Torch,
+cost:8,
+effect:torch═
+
+name:Fairy Water,
+cost:38,
+effect:avoid_encounters═
+
+name:Light Orb═
+
+name:Erdrick's Tablet,
+effect:read_tablet═
+
+name:Silver Harp,
+effect:silver_harp═
+
+name:Rain Staff═
+
+name:Sunstone═
+
+name:Gwaelin's Love,
+effect:distance_from_castle═
+
+name:Erdrick's Token═
+
+name:Rainbow Drop
+
+
+║type:item,item_type:necklace═
+
+name:Dragon's Scale,
+defense:2,
+cost:20═
+
+name:Cursed Necklace,
+cost:1200
+
+
+║type:item,item_type:ring═
+
+name:Fighter's Ring,
+offense:2,
+cost:15
+
+
+║type:item,item_type:belt═
+
+name:Cursed Belt,cost:180
+
+
+║type:action,
+name:magic,
+level:player.level,
+cost:player.mp═
+
+name:Heal,
+level:3,
+cost:3,
+effect:cast_heal═
+
+name:Hurt,
+level:4,
+cost:2,
+combat:true,
+effect:cast_hurt═
+
+name:Sleep,
+level:7,
+cost:2,
+combat:true,
+effect:cast_sleep═
+
+name:Radiant,
+level:9,
+cost:2,
+combat:false,
+effect:cast_radiant═
+
+name:StopSpell,
+level:10,
+cost:2,
+combat:true,
+effect:cast_stop═
+
+name:Outside,
+level:12,
+cost:6,
+combat:false,
+effect:cast_outside═
+
+name:Return,
+level:13,
+cost:8,
+combat:false,
+effect:return_home═
+
+name:Repel,
+level:15,
+cost:2,
+combat:false,
+effect:avoid_encounters═
+
+name:HealMore,
+level:17,
+cost:8,
+effect:cast_healmore═
+
+name:HurtMore,
+level:19,
+cost:5,
+combat:true,
+effect:cast_hurtmore
 
 
 
@@ -22,7 +240,8 @@ type:game,title:Dragon Warrior,name:Dragon,engine:rpg║type:player═level:1,hp
     sub:player.gold=ints.gold;
     if:player.gold<0;
         set:player.gold=0;
-    say:Thou hast parished.;
+    endif;
+    say:Thou hast nearly perished. But thy adventure must go on. ints.gold of thy gold hast been lost to the Dragonlord's minions.;
 
 
 ═action:PlayerStep;
@@ -32,21 +251,23 @@ type:game,title:Dragon Warrior,name:Dragon,engine:rpg║type:player═level:1,hp
         set:ints.fairySteps=0;
     endif;
     if:ints.radiantSteps=0;
-        map.darkRadius=1;
-    elseif:ints.radiantSteps<0;
+        set:map.darkRadius=1;
+    endif;
+    if:ints.radiantSteps<0;
         set:ints.radiantSteps=0;
-    elseif:ints.radiantSteps<60;
+    endif;
+    if:ints.radiantSteps=60;
         set:map.darkRadius=2;
-    elseif:ints.radiantSteps<120;
+    endif;
+    if:ints.radiantSteps=120;
         set:map.darkRadius=3;
-    else;
-        set:map.darkRadius=4;
     endif;
     if:map.OnToxicTile=true;
         setto:ints.damage=map.ToxicLevel;
         run:DamagePlayer;
     endif;
     if:map.name=outworld;
+        set:map.darkRadius=1;
         setto:ints.east=player.x;
         sub:ints.east=46;
         set:ints.west=46;
@@ -116,6 +337,7 @@ type:game,title:Dragon Warrior,name:Dragon,engine:rpg║type:player═level:1,hp
 
 ═action:torch;
     set:map.darkRadius=2;
+    take:Torch;
 
 ═action:avoid_encounters;
     set:ints.fairySteps=128;
@@ -177,7 +399,7 @@ type:game,title:Dragon Warrior,name:Dragon,engine:rpg║type:player═level:1,hp
     say:Thou hast put enemy.name to sleep.;
 
 ═action:cast_radiant;
-    set:ints.radiantSteps=200
+    set:ints.radiantSteps=200;
     say:Thou hast cast radiant.;
 ═action:cast_stop;
     rand:ints.spellChance=1,16;

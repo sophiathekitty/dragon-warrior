@@ -14,7 +14,7 @@ type:map,edges:0═000000000000
 ║type:npc,character:knight,name:Sir Right,x:6,y:7,direction:up═action:Talk;say:If thou hast collected all the Treasure Chests, a key will be found. Once used, the key will disappear, but the door will be open and thou may pass through.;
 ║type:npc,character:knight,name:Sir Walkin,x:7,y:7,direction:up,walk:true═action:Talk;ask:Dost thou know about Princess Gwaelin?;═no:Talk;say:Half a year now hath passed since the Princess was kidnapped by the enemy. Never does the King speak of it, but he must be suffering much. Hero, please save the Princess.;═yes:Talk;say:Hero, please save the Princess.;
 ║type:npc,character:chest,name:chest,x:5,y:5═visible:bools.chest1:true═action:Take;add:player.gold=120;set:bools.chest1=false;set:visible=false;say:thou hast gained 120 gold;
-║type:npc,character:chest,name:chest,x:6,y:5═visible:bools.chest2:true═action:Take;give:torch;set:bools.chest2=false;set:visible=false;say:thou hast gained a torch;
+║type:npc,character:chest,name:chest,x:6,y:5═visible:bools.chest2:true═action:Take;give:Torch;set:bools.chest2=false;set:visible=false;say:thou hast gained a torch;
 ║type:npc,character:chest,name:chest,x:7,y:2═visible:bools.chest3:true═action:Take;add:player.keys=1;set:bools.chest3=false;set:visible=false;say:thou hast gained a key;
 ║type:npc,character:door,name:door,x:5,y:8═visible:bools.door1:true═action:Door;if:player.keys>0;sub:player.keys=1;set:bools.door1=false;set:bools.intro2=true;set:visible=false;else;say:Thou hast not a key to use.;
 ║type:exit,exit:stairs,map:tantegel,x:9,y:9,targetX:7,targetY:7
