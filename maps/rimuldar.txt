@@ -58,7 +58,7 @@ kkf1111f1111f8cccc87788kkkk777
 000000000000000000000000000000
 000000000000000000000000000000║type:exit,exit:edge,map:outworld,x:-1,y:-1,targetX:104,targetY:75
 ║type:npc,character:merchant,name:Innkeeper,x:16,y:18═action:Talk;say:Welcome to the Traveler’s Inn. Room and board is 55 GOLD per night.;═action:Inn;ask:Dost thou want a room?;═no:Inn;say:Okay.Good-bye, traveler.═yes:Inn;if:player.gold<55;say:Thou hast not enough gold.;else;sub:player.gold=55;setto:player.hp=playerMax.hp;setto:player.mp=playerMax.mp;say:Thou hast a good rest.;
-║type:npc,character:merchant,name:Armory Shop,x:23,y:7═action:Talk;say:We deal in weapons and armor.;═action:Buy;shop:Copper Sword,Hand Axe,Broad Sword, Half Plate, Full Plate,Magic Plate;
+║type:npc,character:merchant,name:Armory Shop,x:23,y:7═action:Talk;say:We deal in weapons and armor.;═action:Buy;shop:Copper Sword,Hand Axe,Broad Sword, Half Plate, Full Plate,Magic Plate;═action:Sell;sell;
 ║type:npc,character:wiseguy,name:Key Seller,x:4,y:7═action:Talk;say:Magic keys! They will unlock any door.;═action:Buy;ask:Dost thou wish to purchase one for 53 GOLD?;═no:Buy;say:I will see thee later.═yes:Buy;if:player.gold<53;say:Thou hast not enough money. I will see thee later.;else;sub:player.gold=53;add:player.keys=1;say:Here, take this key.;
 ║type:npc,character:wiseguy,name:Island Guy,x:6,y:13═action:Talk;say:Over the western part of this island Erdrick created a rainbow. ’Tis also said that he entered the darkness from a hidden entrance in the room of the Dragonlord.;
 ║type:npc,character:wiseguy,name:Magic Man,x:3,y:23═action:Talk;ask:This is a magic place. Hast thou found a magic temple;═yes:Talk;say:In this temple do the sun and rain meet.;═no:Talk;say:Go to the south.;

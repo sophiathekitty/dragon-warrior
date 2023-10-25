@@ -21,8 +21,8 @@ f1f1111111f8fffff8cccf88
 f111f11111fff111f8cccf88
 ff1ff17171111g11f88c8888
 8777f11111fff111f88c8888
-877ffffffff8fffff88c8888║type:npc,character:merchant,name:Armory Shop,x:22,y:12═action:Talk;say:We deal in weapons and armor.;═action:Buy;shop:Copper Sword,Hand Axe,Half Plate,Full Plate,Small Shield;
-║type:npc,character:merchant,name:Item Shop,x:14,y:21═action:Talk;say:Welcome. We deal in tools.;═action:Buy;shop:Herb,Torch,Dragon's Scale,Wings;
+877ffffffff8fffff88c8888║type:npc,character:merchant,name:Armory Shop,x:22,y:12═action:Talk;say:We deal in weapons and armor.;═action:Buy;shop:Copper Sword,Hand Axe,Half Plate,Full Plate,Small Shield;═action:Sell;sell;
+║type:npc,character:merchant,name:Item Shop,x:14,y:21═action:Talk;say:Welcome. We deal in tools.;═action:Buy;shop:Herb,Torch,Dragon's Scale,Wings;═action:Sell;sell;
 ║type:npc,character:chest,name:chest,x:15,y:20═action:Take;add:player.gold=9;set:bools.chest3=false;set:visible=false;say:thou hast gained 9 gold;
 ║type:npc,character:chest,name:chest,x:15,y:21═action:Take;add:player.gold=9;set:bools.chest3=false;set:visible=false;say:thou hast gained 9 gold;
 ║type:npc,character:chest,name:chest,x:15,y:22═action:Take;add:player.gold=9;set:bools.chest3=false;set:visible=false;say:thou hast gained 9 gold;

@@ -58,7 +58,7 @@ fffffffffffffffkkkkkkkkkkkkkkk║type:roof═000000000000000000000000000000
 000000000000000000000000000000
 000000000000000000000000000000║type:npc,character:man,name:Some Guy,x:1,y:13═action:Talk;say:Thou art most welcome in Brecconary.;
 ║type:npc,character:woman,name:Some Gal,x:4,y:7═action:Talk;say:Welcome! Enter the shop and speak to its keeper across the desk.;
-║type:npc,character:merchant,name:Armory Shop,x:5,y:4═action:Talk;say:We deal in weapons and armor.;═action:Buy;shop:Bamboo Pole,Club,Copper Sword,Clothes,Leather Armor,Small Shield;
+║type:npc,character:merchant,name:Armory Shop,x:5,y:4═action:Talk;say:We deal in weapons and armor.;═action:Buy;shop:Bamboo Pole,Club,Copper Sword,Clothes,Leather Armor,Small Shield;═action:Sell;sell;
 ║type:npc,character:merchant,name:Innkeeper,x:10,y:21═action:Talk;say:Welcome to the Traveler’s Inn. Room and board is 6 GOLD per night.;═action:Inn;ask:Dost thou want a room?;═no:Inn;say:Okay.Good-bye, traveler.═yes:Inn;if:player.gold<6;say:Thou hast not enough gold.;else;sub:player.gold=6;setto:player.hp=playerMax.hp;setto:player.mp=playerMax.mp;say:Thou hast a good rest.;
 ║type:npc,character:woman,name:Some Gal,x:24,y:4═action:Talk;say:Fairy Water keeps the Dragonlord’s minions away.;═action:Buy;ask:Will thou buy some Fairy Water for 38 GOLD?;═no:Buy;say:All the best to thee.;═yes:Buy;if:player.gold<38;say:Thou hast not enough gold.;else;sub:player.gold=38;give:Fairy Water;say:I thank thee.;
 ║type:npc,character:soldier,name:Soldier,x:28,y:1═action:Talk;say:Beware the bridges! Danger grows when thou crosses.;
@@ -68,7 +68,7 @@ fffffffffffffffkkkkkkkkkkkkkkk║type:roof═000000000000000000000000000000
 ║type:npc,character:man,name:Some Guy,x:20,y:10═action:Talk;say:There is a town where magic keys can be purchased.;
 ║type:npc,character:wiseguy,name:Curse Lifter,x:24,y:10═action:Talk;say:If thou art cursed, come again.;
 ║type:npc,character:man,name:Some Guy,x:13,y:22,walk:true═action:Talk;say:Go north to the seashore, then follow the coastline west until thou hath reached Garinham.;
-║type:npc,character:merchant,name:Item Shop,x:25,y:25═action:Talk;say:Welcome. We deal in tools. What can I do for thee?;═action:Buy;shop:Herb,Torch,Dragon's Scale;
+║type:npc,character:merchant,name:Item Shop,x:25,y:25═action:Talk;say:Welcome. We deal in tools. What can I do for thee?;═action:Buy;shop:Herb,Torch,Dragon's Scale;═action:Sell;sell;
 ║type:npc,character:man,name:Some Guy,x:20,y:22,walk:true═action:Talk;say:Enter where thou can.;
 ║type:npc,character:man,name:Some Guy,x:20,y:23,walk:true═action:Talk;say:Within sight of Tantegel Castle to the south is Charlock, the fortress of the Dragonlord.;
 ║type:npc,character:knight,name:Inn Patrol,x:10,y:26,walk:true═action:Talk;say:Tell King Lorik that the search for his daughter hath failed. I am almost gone....;

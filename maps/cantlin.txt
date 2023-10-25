@@ -56,11 +56,11 @@ ffffffff1f44411444f1ffffffff
 0000000000000000000000000000
 0000000000000000000000000000║type:exit,exit:edge,map:outworld,x:-1,y:-1,targetX:77,targetY:104
 ║type:npc,character:merchant,name:Innkeeper,x:7,y:2═action:Talk;say:Welcome to the Traveler’s Inn. Room and board is 100 GOLD per night.;═action:Inn;ask:Dost thou want a room?;═no:Inn;say:Okay.Good-bye, traveler.═yes:Inn;if:player.gold<100;say:Thou hast not enough gold.;else;sub:player.gold=100;setto:player.hp=playerMax.hp;setto:player.mp=playerMax.mp;say:Thou hast a good rest.;
-║type:npc,character:merchant,name:Armory Shop,x:21,y:4═action:Talk;say:We deal in weapons and armor.;═action:Buy;shop:Bamboo Pole,Club,Copper Sword,Leather Armor,Chain Mail,Large Shield;
-║type:npc,character:merchant,name:Armory Shop,x:26,y:25═action:Talk;say:We deal in weapons and armor.;═action:Buy;shop:Hand Axe,Broad Sword,Full Plate,Magic Armor;
-║type:npc,character:knight,name:Armory Shop,x:23,y:11═action:Talk;say:We deal in weapons and armor.;═action:Buy;shop:Flame Sword,Silver Shield;
-║type:npc,character:merchant,name:Item Shop,x:6,y:11═action:Talk;say:Welcome. We deal in tools.;═action:Buy;shop:Dragon's Scale,Wings;
-║type:npc,character:man,name:Item Shop,x:1,y:6═action:Talk;say:Welcome. We deal in tools.;═action:Buy;shop:Herb,Torch;
+║type:npc,character:merchant,name:Armory Shop,x:21,y:4═action:Talk;say:We deal in weapons and armor.;═action:Buy;shop:Bamboo Pole,Club,Copper Sword,Leather Armor,Chain Mail,Large Shield;═action:Sell;sell;
+║type:npc,character:merchant,name:Armory Shop,x:26,y:25═action:Talk;say:We deal in weapons and armor.;═action:Buy;shop:Hand Axe,Broad Sword,Full Plate,Magic Armor;═action:Sell;sell;
+║type:npc,character:knight,name:Armory Shop,x:23,y:11═action:Talk;say:We deal in weapons and armor.;═action:Buy;shop:Flame Sword,Silver Shield;═action:Sell;sell;
+║type:npc,character:merchant,name:Item Shop,x:6,y:11═action:Talk;say:Welcome. We deal in tools.;═action:Buy;shop:Dragon's Scale,Wings;═action:Sell;sell;
+║type:npc,character:man,name:Item Shop,x:1,y:6═action:Talk;say:Welcome. We deal in tools.;═action:Buy;shop:Herb,Torch;═action:Sell;sell;
 ║type:npc,character:woman,name:Some Gal,x:21,y:12═action:Talk;say:Fairy Water keeps the Dragonlord’s minions away.;═action:Buy;ask:Will thou buy some Fairy Water for 38 GOLD?;═no:Buy;say:All the best to thee.;═yes:Buy;if:player.gold<38;say:Thou hast not enough gold.;else;sub:player.gold=38;give:Fairy Water;say:I thank thee.;
 ║type:npc,character:wiseguy,name:Key Seller,x:26,y:5═action:Talk;say:Magic keys! They will unlock any door.;═action:Buy;ask:Dost thou wish to purchase one for 98 GOLD?;═no:Buy;say:I will see thee later.═yes:Buy;if:player.gold<98;say:Thou hast not enough money. I will see thee later.;else;sub:player.gold=98;add:player.keys=1;say:Here, take this key.;
 ║type:npc,character:wiseguy,name:Curse Lifter,x:14,y:15═action:Talk;say:To learn how proof may be obtained that thy ancestor was the great Erdrick, see a man in this very town.;

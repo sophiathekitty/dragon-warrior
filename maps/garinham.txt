@@ -42,8 +42,8 @@ kkkkkkkkfffff7ffffff║type:roof═00000000000000000000
 ║type:npc,character:man,name:Some Guy,x:17,y:11,walk:true═action:Talk;say:It is said that the Princess was kidnapped and taken eastward.;
 ║type:npc,character:woman,name:Some Gal,x:11,y:12,walk:true═action:Talk;say:Welcome to Garinham. May thy stay be a peaceful one.;
 ║type:npc,character:soldier,name:Town Patrol,x:7,y:17,walk:true═action:Talk;ask:I have heard of one named Nester. Dost thou know such a one?;═yes:Talk;say:NERD!;═no:Talk;say:Nester was a character from a recurring comic in Nintendo Power where he and his friend Howard would participate in the story of games featured in the magazine. In Volume 10 Nester visited Alefgard.;
-║type:npc,character:merchant,name:Armory Shop,x:10,y:18═action:Talk;say:We deal in weapons and armor.;═action:Buy;shop:Club,Copper Sword,Hand Axe,Leather Armor,Chain Mail,Half Plate,Large Shield;
-║type:npc,character:merchant,name:Item Shop,x:5,y:11═action:Talk;say:Welcome. We deal in tools.;═action:Buy;shop:Herb,Torch,Dragon's Scale;
+║type:npc,character:merchant,name:Armory Shop,x:10,y:18═action:Talk;say:We deal in weapons and armor.;═action:Buy;shop:Club,Copper Sword,Hand Axe,Leather Armor,Chain Mail,Half Plate,Large Shield;═action:Sell;sell;
+║type:npc,character:merchant,name:Item Shop,x:5,y:11═action:Talk;say:Welcome. We deal in tools.;═action:Buy;shop:Herb,Torch,Dragon's Scale;═action:Sell;sell;
 ║type:npc,character:door,name:door,x:17,y:10═visible:bools.door6:true═action:Door;if:player.keys>0;sub:player.keys=1;set:bools.door6=false;set:visible=false;else;say:Thou hast not a key to use.;
 ║type:exit,exit:edge,map:outworld,x:-1,y:-1,targetX:5,targetY:5
 ║type:exit,exit:edge,map:garingraveA,x:19,y:0,targetX:7,targetY:12
