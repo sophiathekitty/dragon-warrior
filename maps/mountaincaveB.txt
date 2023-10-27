@@ -16,3 +16,4 @@ f111111111f1111f
 ffffffffffffffff║type:exit,exit:edge,map:mountaincaveA,x:1,y:1,targetX:1,targetY:1
 ║type:exit,exit:edge,map:mountaincaveA,x:7,y:6,targetX:7,targetY:6
 ║type:exit,exit:edge,map:mountaincaveA,x:13,y:13,targetX:13,targetY:13
+║type:exit,exit:edge,map:outworld,x:1,y:8,targetX:32,targetY:60

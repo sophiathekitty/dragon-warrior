@@ -29,3 +29,6 @@ ffffffffffffffffffffff║type:exit,exit:Secret,map:charlockA,x:10,y:1,targetX:10
 ║type:exit,exit:S,map:charlockC,x:15,y:10,targetX:9,targetY:10
 ║type:exit,exit:Q,map:charlockC,x:3,y:15,targetX:1,targetY:2
 ║type:exit,exit:A,map:charlockC,x:9,y:20,targetX:6,targetY:1
+║type:exit,exit:edge,map:outworld,x:-1,y:-1,targetX:51,targetY:51
+║type:encounters,id:0═Werewolf,Wizard,Starwyvern,Axe Knight, Green Dragon
+║type:encounterMap═0

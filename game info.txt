@@ -5,6 +5,8 @@ level:1,
 hp:15,mp:0,
 strength:4,
 agility:4,
+attack:6,
+defense:4,
 xp:0,
 gold:0,
 keys:0═
@@ -26,31 +28,31 @@ y:5
 ║type:item,item_type:weapon═
 
 name:Bamboo Pole,
-offense:2,
+attack:2,
 cost:10═
 
 name:Club,
-offense:4,
-cost:10═
+attack:4,
+cost:60═
 
 name:Copper Sword,
-offense:10,
+attack:10,
 cost:180═
 
 name:Hand Axe,
-offense:15,
+attack:15,
 cost:560═
 
 name:Broad Sword,
-offense:20,
+attack:20,
 cost:1500═
 
 name:Flame Sword,
-offense:28,
+attack:28,
 cost:9800═
 
 name:Erdrick's Sword,
-offense:40
+attack:40
 
 
 ║type:item,item_type:armor═
@@ -149,7 +151,7 @@ cost:1200
 ║type:item,item_type:ring═
 
 name:Fighter's Ring,
-offense:2,
+attack:2,
 cost:15
 
 
@@ -158,7 +160,7 @@ cost:15
 name:Cursed Belt,cost:180
 
 
-║type:action,
+║type:spells,
 name:magic,
 level:player.level,
 cost:player.mp═
@@ -243,6 +245,14 @@ effect:cast_hurtmore
     endif;
     say:Thou hast nearly perished. But thy adventure must go on. ints.gold of thy gold hast been lost to the Dragonlord's minions.;
 
+═action:CalculatePlayerStats;
+    setto:player.strength=playerMax.strength;
+    setto:player.agility=playerMax.agility;
+    setto:player.attack=player.strength;
+    add:player.attack=gear.attack;
+    setto:player.defense=player.agility;
+    add:player.defense=gear.defense;
+
 
 ═action:PlayerStep;
     sub:ints.fairySteps=1;
@@ -295,10 +305,21 @@ effect:cast_hurtmore
     if:ints.encounterCheck<ints.encounterThreshold;
         encounter:maps.encounter;
 
+═action:StartEncounter;
+    rand:ints.run=0,255;
+    mul:ints.run=player.agility;
+    rand:ints.block=0,255;
+    mul:ints.block=enemy.agility;
+    if:ints.run>ints.block;
+        set:encounter.playerTurn=true;
+    else;
+        set:encounter.playerTurn=false;
+
 ═action:WinEncounter;
     add:player.xp=enemy.xp;
+    set:encounter.over=true;
     if:player.xp<playerMax.xp;
-        exit;
+        say:Thou hast vanquished ENEMYNAME.;
     endif;
     add:player.level=1;
     if:player.level>30;
@@ -309,17 +330,21 @@ effect:cast_hurtmore
         set:playerMax.xp=23;
         add:playerMax.hp=7;
         add:playerMax.strength=1;
-        say:Thou hast leveled up! Thy strength hast increased by 1 and thy hp has increased by 7.;
-    elseif:player.level=3;
+        run:CalculatePlayerStats;
+        say:Thou hast vanquished ENEMYNAME. Thou hast leveled up! Thy strength hast increased by 1 and thy hp has increased by 7.;
+    endif;
+    if:player.level=3;
         set:playerMax.xp=47;
         add:playerMax.strength=2;
         add:playerMax.agility=2;
         add:playerMax.hp=2;
         add:playerMax.mp=7;
-        say:Thou hast leveled up! Thy strength, hp, and agility hast increased by 2. Thy mp has increased to 7 and thou has learned Heal.;
-    elseif:player.level>3;
+        run:CalculatePlayerStats;
+        say:Thou hast vanquished ENEMYNAME. Thou hast leveled up! Thy strength, hp, and agility hast increased by 2. Thy mp has increased to 7 and thou has learned Heal.;
+    endif;
+    if:player.level>3;
         setto:ints.xpIncrease=playerMax.xp;
-        div:ints.xpIncrease/3;
+        div:ints.xpIncrease=3;
         add:playerMax.xp=ints.xpIncrease;        
         rand:ints.hpIncrease=2,15;
         add:playerMax.hp=ints.hpIncrease;
@@ -329,7 +354,8 @@ effect:cast_hurtmore
         add:playerMax.agility=ints.agilityIncrease;
         rand:ints.strengthIncrease=2,10;
         add:playerMax.strength=ints.strengthIncrease;
-        say:Thou hast leveled up! Thy strength hast increased by ints.strengthIncrease and thy agility hast increased by ints.agilityIncrease. Thy hp hast increased by ints.hpIncrease and thy mp hast increased by ints.mpIncrease.;
+        run:CalculatePlayerStats;
+        say:Thou hast vanquished ENEMYNAME. Thou hast leveled up! Thy strength hast increased by ints.strengthIncrease and thy agility hast increased by ints.agilityIncrease. Thy hp hast increased by ints.hpIncrease and thy mp hast increased by ints.mpIncrease.;
 
 ═action:return_home;
     if:map.name=outworld;
@@ -381,6 +407,8 @@ effect:cast_hurtmore
     add:player.hp=ints.restore;
     if:player.hp>playerMax.hp;
         setto:player.hp=playerMax.hp;
+    endif;
+    say:Thou hast restore ints.restore hp.;
 
 ═action:cast_hurt;
     rand:ints.spellChance=1,16;
@@ -388,7 +416,7 @@ effect:cast_hurtmore
         say:Thou casts Hurt but fail to hit thou target.;
     endif;
     rand:ints.damage=8,12;
-    sub:enemy.hp=ints.damage;
+    run:DamageEnemy;
 
 ═action:cast_sleep;
     rand:ints.spellChance=1,16;
@@ -400,6 +428,7 @@ effect:cast_hurtmore
 
 ═action:cast_radiant;
     set:ints.radiantSteps=200;
+    set:map.darkRadius=4;
     say:Thou hast cast radiant.;
 ═action:cast_stop;
     rand:ints.spellChance=1,16;
@@ -422,5 +451,109 @@ effect:cast_hurtmore
         say:Thou casts Hurt but fail to hit thou target.;
     endif;
     rand:ints.damage=58,65;
-    sub:enemy.hp=ints.damage;
+    run:DamageEnemy;
 
+═action:PlayerAttack;
+    set:ints.damage=player.attack;
+    set:ints.defense=enemy.agility;
+    div:ints.defense=2;
+    sub:ints.damage=ints.defense;
+    div:ints.damage=4;
+    run:DamageEnemy;
+
+═action:PlayerRun;
+    rand:ints.run=0,255;
+    mul:ints.run=player.agility;
+    rand:ints.block=0,255;
+    mul:ints.block=enemy.agility;
+    if:ints.run>ints.block;
+        set:encounter.over=true;
+        say:Thou hast ran away.
+    else;
+        say:ENEMYNAME hast blocked thy attempt to flee.
+
+═action:DamageEnemy;
+    sub:enemy.hp=ints.damage;
+    if:enemy.hp>0;
+        say:ENEMYNAME takes ints.damage damage.
+    else;
+        run:WinEncounter;
+
+═action:attack;
+    if:player.defense>enemy.strength;
+        set:ints.damage=enemy.strength;
+        add:ints.damage=4;
+        div:ints.damage=6;
+    else;
+        set:ints.damage=enemy.strength;
+        set:ints.defense=player.defense;
+        div:ints.defense=2;
+        sub:ints.damage=ints.defense;
+        div:ints.damage=4;
+    endif;
+    run:DamagePlayer;
+
+
+═action:hurt;
+    rand:ints.damage=3,5;
+    if:playerGear.armor=Magic Armor;
+        div:ints.damage=3;
+    endif;
+    if:playerGear.armor=Erdrick's Armor;
+        div:ints.damage=3;
+    endif;
+    run:DamagePlayer;
+
+═action:stop;
+    rand:ints.stopChance=0,100;
+    if:ints.stopChance>50;
+        set:player.status=stop;
+        say:ENEMYNAME casts Stop. Thy magic hast been stopped.;
+    endif;
+    say:ENEMYNAME casts Stop. Thy magic remains unstopped.;
+
+═action:sleep;
+    rand:ints.stopChance=0,100;
+    if:ints.stopChance>50;
+        set:player.status=sleep;
+        say:ENEMYNAME casts Sleep. Thou hast fallen asleep.;
+    endif;
+    say:ENEMYNAME casts Sleep. Thou hast resisted.
+
+═action:hurtmore;
+    rand:ints.damage=30,45;
+    if:playerGear.armor=Magic Armor;
+        div:ints.damage=3;
+    endif;
+    if:playerGear.armor=Erdrick's Armor;
+        div:ints.damage=3;
+    endif;
+    run:DamagePlayer;
+
+═action:breath;
+    rand:ints.damage=16,23;
+    if:playerGear.armor=Magic Armor;
+        div:ints.damage=3;
+    endif;
+    if:playerGear.armor=Erdrick's Armor;
+        div:ints.damage=3;
+    endif;
+    run:DamagePlayer;
+
+═action:strongbreath;
+    rand:ints.damage=65,72;
+    if:playerGear.armor=Magic Armor;
+        div:ints.damage=3;
+    endif;
+    if:playerGear.armor=Erdrick's Armor;
+        div:ints.damage=3;
+    endif;
+    run:DamagePlayer;
+
+═action:run;
+    rand:ints.run=0,100;
+    if:ints.run<25;
+        set:encounter.over=true;
+        say:ENEMYNAME hast ran way.
+    else;
+        say:Thou hast blocked ENEMYNAME attempt to flee.

@@ -11,5 +11,5 @@ ff1111111111ff
 ff1f111111f1ff
 fff11111111fff
 ffffffffffffff
-ffffffffffffff
-║type:exit,exit:stairs,map:tantegel,x:2,y:6,targetX:29,targetY:28
+ffffffffffffff║type:exit,exit:stairs,map:tantegel,x:2,y:6,targetX:29,targetY:28
+║type:exit,exit:edge,map:outworld,x:-1,y:-1,targetX:46,targetY:46

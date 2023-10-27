@@ -17,3 +17,6 @@ ffffffffffffffff║type:exit,exit:A,map:garingraveA,x:12,y:3,targetX:2,targetY:1
 ║type:exit,exit:D,map:garingraveC,x:2,y:2,targetX:15,targetY:2
 ║type:exit,exit:E,map:garingraveC,x:2,y:11,targetX:3,targetY:18
 ║type:exit,exit:F,map:garingraveC,x:6,y:7,targetX:7,targetY:12
+║type:exit,exit:edge,map:outworld,x:-1,y:-1,targetX:5,targetY:5
+║type:encounters,id:0═Wolf,Warlock,Skeleton,Metal Scorpion
+║type:encounterMap═0
