@@ -243,6 +243,7 @@ effect:cast_hurtmore
     if:player.gold<0;
         set:player.gold=0;
     endif;
+    set:encounter.over=true;
     say:Thou hast nearly perished. But thy adventure must go on. ints.gold of thy gold hast been lost to the Dragonlord's minions.;
 
 ═action:CalculatePlayerStats;
@@ -274,7 +275,17 @@ effect:cast_hurtmore
     endif;
     if:map.OnToxicTile=true;
         setto:ints.damage=map.ToxicLevel;
-        run:DamagePlayer;
+        ifnot:playerGear.armor=Erdrick's Armor;
+            run:DamagePlayer;
+    endif;
+    if:playerGear.armor=Erdrick's Armor;
+        add:player.hp=1;
+    endif;
+    if:playerGear.armor=Magic Armor;
+        add:player.hp=1;
+    endif;
+    if:player.hp>playerMax.hp;
+        setto:player.hp=playerMax.hp;
     endif;
     if:map.name=outworld;
         set:map.darkRadius=1;
@@ -297,13 +308,13 @@ effect:cast_hurtmore
         exit;
     endif;
     if:map.OnDangerTile=true;
-        set:ints.encounterThreshold = 30;
+        set:ints.encounterThreshold=30;
     else;
-        set:ints.encounterThreshold = 15;
+        set:ints.encounterThreshold=15;
     endif;
     rand:ints.encounterCheck=0,100;
     if:ints.encounterCheck<ints.encounterThreshold;
-        encounter:maps.encounter;
+        encounter:map.encounter;
 
 ═action:StartEncounter;
     rand:ints.run=0,255;
@@ -312,14 +323,20 @@ effect:cast_hurtmore
     mul:ints.block=enemy.agility;
     if:ints.run>ints.block;
         set:encounter.playerTurn=true;
+        say:A ENEMYNAME draws near!;
     else;
         set:encounter.playerTurn=false;
+        say:A ENEMYNAME hast surprised thou.;
 
 ═action:WinEncounter;
-    add:player.xp=enemy.xp;
+    add:player.xp=enemy.exp;
+    add:player.gold=enemy.gold;
     set:encounter.over=true;
+    if:playerMax.xp=0;
+        set:playerMax.xp=7;
+    endif;
     if:player.xp<playerMax.xp;
-        say:Thou hast vanquished ENEMYNAME.;
+        say:Thou hast done well in defeating the ENEMYNAME. Thy Experience increases by enemy.exp. Thy gold increases by enemy.gold.;
     endif;
     add:player.level=1;
     if:player.level>30;
@@ -331,7 +348,7 @@ effect:cast_hurtmore
         add:playerMax.hp=7;
         add:playerMax.strength=1;
         run:CalculatePlayerStats;
-        say:Thou hast vanquished ENEMYNAME. Thou hast leveled up! Thy strength hast increased by 1 and thy hp has increased by 7.;
+        say:Thou hast done well in defeating the ENEMYNAME. Thy Experience increases by enemy.exp. Thy gold increases by enemy.gold. Courage and wit have served thee well. Thou hast been promoted to the next level. Thy power increases by 1. Thy Maximum Hit Points increase by 7.;
     endif;
     if:player.level=3;
         set:playerMax.xp=47;
@@ -340,7 +357,7 @@ effect:cast_hurtmore
         add:playerMax.hp=2;
         add:playerMax.mp=7;
         run:CalculatePlayerStats;
-        say:Thou hast vanquished ENEMYNAME. Thou hast leveled up! Thy strength, hp, and agility hast increased by 2. Thy mp has increased to 7 and thou has learned Heal.;
+        say:Thou hast done well in defeating the ENEMYNAME. Thy Experience increases by enemy.exp. Thy gold increases by enemy.gold. Courage and wit have served thee well. Thou hast been promoted to the next level. Thy power increases by 2. Thy Response Speed increases by 2. Thy Maximum Hit Points increase by 2. Thy Maximum Magic Points increase by 6. Thou hast learned a new spell.;
     endif;
     if:player.level>3;
         setto:ints.xpIncrease=playerMax.xp;
@@ -355,7 +372,7 @@ effect:cast_hurtmore
         rand:ints.strengthIncrease=2,10;
         add:playerMax.strength=ints.strengthIncrease;
         run:CalculatePlayerStats;
-        say:Thou hast vanquished ENEMYNAME. Thou hast leveled up! Thy strength hast increased by ints.strengthIncrease and thy agility hast increased by ints.agilityIncrease. Thy hp hast increased by ints.hpIncrease and thy mp hast increased by ints.mpIncrease.;
+        say:Thou hast done well in defeating the ENEMYNAME. Thy Experience increases by enemy.exp. Thy gold increases by enemy.gold. Courage and wit have served thee well. Thou hast been promoted to the next level. Thy strength hast increased by ints.strengthIncrease and thy agility hast increased by ints.agilityIncrease. Thy hp hast increased by ints.hpIncrease and thy mp hast increased by ints.mpIncrease. Maybe thou hast even learned a new spell? i'm kinda just doing random stat increases at this point... maybe i'll change this at some point.;
 
 ═action:return_home;
     if:map.name=outworld;
@@ -454,8 +471,8 @@ effect:cast_hurtmore
     run:DamageEnemy;
 
 ═action:PlayerAttack;
-    set:ints.damage=player.attack;
-    set:ints.defense=enemy.agility;
+    setto:ints.damage=player.attack;
+    setto:ints.defense=enemy.agility;
     div:ints.defense=2;
     sub:ints.damage=ints.defense;
     div:ints.damage=4;
@@ -468,30 +485,31 @@ effect:cast_hurtmore
     mul:ints.block=enemy.agility;
     if:ints.run>ints.block;
         set:encounter.over=true;
-        say:Thou hast ran away.
+        say:Thou hast ran away.;
     else;
-        say:ENEMYNAME hast blocked thy attempt to flee.
+        say:ENEMYNAME hast blocked thy attempt to flee.;
 
 ═action:DamageEnemy;
     sub:enemy.hp=ints.damage;
     if:enemy.hp>0;
-        say:ENEMYNAME takes ints.damage damage.
+        say:ENEMYNAME takes ints.damage damage.;
     else;
         run:WinEncounter;
 
 ═action:attack;
     if:player.defense>enemy.strength;
-        set:ints.damage=enemy.strength;
+        setto:ints.damage=enemy.strength;
         add:ints.damage=4;
         div:ints.damage=6;
     else;
-        set:ints.damage=enemy.strength;
-        set:ints.defense=player.defense;
+        setto:ints.damage=enemy.strength;
+        setto:ints.defense=player.defense;
         div:ints.defense=2;
         sub:ints.damage=ints.defense;
         div:ints.damage=4;
     endif;
     run:DamagePlayer;
+    say:ENEMYNAME attacks! Thou hast lost ints.damage hp.;
 
 
 ═action:hurt;
@@ -503,6 +521,7 @@ effect:cast_hurtmore
         div:ints.damage=3;
     endif;
     run:DamagePlayer;
+    say:ENEMYNAME cast hurt! Thou hast lost ints.damage hp.;
 
 ═action:stop;
     rand:ints.stopChance=0,100;
@@ -529,6 +548,7 @@ effect:cast_hurtmore
         div:ints.damage=3;
     endif;
     run:DamagePlayer;
+    say:ENEMYNAME cast hurtmore! Thou hast lost ints.damage hp.;
 
 ═action:breath;
     rand:ints.damage=16,23;
@@ -539,6 +559,7 @@ effect:cast_hurtmore
         div:ints.damage=3;
     endif;
     run:DamagePlayer;
+    say:ENEMYNAME hast horrid breath! Thou hast lost ints.damage hp.;
 
 ═action:strongbreath;
     rand:ints.damage=65,72;
@@ -549,11 +570,12 @@ effect:cast_hurtmore
         div:ints.damage=3;
     endif;
     run:DamagePlayer;
+    say:ENEMYNAME hast breath of fire! Thou hast lost ints.damage hp.;
 
 ═action:run;
     rand:ints.run=0,100;
     if:ints.run<25;
         set:encounter.over=true;
-        say:ENEMYNAME hast ran way.
+        say:ENEMYNAME hast ran way.;
     else;
-        say:Thou hast blocked ENEMYNAME attempt to flee.
+        say:Thou hast blocked ENEMYNAME attempt to flee.;
