@@ -29,3 +29,10 @@ coming soon... will go in the *PublicText* of `DB:Dragon.Characters.0`
 the `game save.txt` contains a default save that should be copied over to the *PublicText* of `DB:Dragon.Main.0` and the line breaks may need to be removed.
 
 once i get everything working i'll see about getting a blueprint i can share to the steam workshop. i'll also publish the script to the workshop so you won't need to setup visual studio and the MDK stuff to deploy it.
+
+## Sources and Resources used
+
+sprites and tiles: [the spriters resource](https://www.spriters-resource.com/nes/dw/)
+map references: [the spriters resource](https://www.spriters-resource.com/nes/dw/), [realm of darkness](https://www.realmofdarkness.net/dq/nes-dw-dungeon-maps/), [video game maps](http://www.videogamemaps.net/?maps/nes/dragonwarrior)
+npc dialog and flavor text: [woodus](https://www.woodus.com/den/general/gamescripts.php)
+game math and formulas: [gamefaqs](https://gamefaqs.gamespot.com/nes/563408-dragon-warrior/faqs/61640)

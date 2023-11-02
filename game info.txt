@@ -312,7 +312,7 @@ effect:cast_hurtmore
     else;
         set:ints.encounterThreshold=15;
     endif;
-    rand:ints.encounterCheck=0,100;
+    rand:ints.encounterCheck=0,300;
     if:ints.encounterCheck<ints.encounterThreshold;
         encounter:map.encounter;
 
@@ -329,6 +329,7 @@ effect:cast_hurtmore
         say:A ENEMYNAME hast surprised thou.;
 
 ═action:WinEncounter;
+    add:ints.fairySteps=5;
     add:player.xp=enemy.exp;
     add:player.gold=enemy.gold;
     set:encounter.over=true;
@@ -336,7 +337,7 @@ effect:cast_hurtmore
         set:playerMax.xp=7;
     endif;
     if:player.xp<playerMax.xp;
-        say:Thou hast done well in defeating the ENEMYNAME. Thy Experience increases by enemy.exp. Thy gold increases by enemy.gold.;
+        csay:Thou hast done well in defeating the ENEMYNAME. Thy Experience increases by enemy.exp. Thy gold increases by enemy.gold.;
     endif;
     add:player.level=1;
     if:player.level>30;
@@ -417,7 +418,7 @@ effect:cast_hurtmore
     
 
 ═action:read_tablet;
-    say:this should be some sort of hint i guess but... woops... i haven't looked up what it should be at this point.;
+    say:The tablet reads as follows: ‘I am Erdrick and thou art my descendant. Three items were needed to reach the Isle of Dragons, which is south of Brecconary. I gathered these items, reached the island, and there defeated a creature of great evil. Now I have entrusted the three items to three worthy keepers. Their descendants will protect the items until thy quest leads thee to seek them out. When a new evil arises, find the three items, then fight!’;
 
 ═action:cast_heal;
     rand:ints.restore=25,30;
@@ -433,6 +434,7 @@ effect:cast_hurtmore
         say:Thou casts Hurt but fail to hit thou target.;
     endif;
     rand:ints.damage=8,12;
+    csay:Thou casts Hurt.;
     run:DamageEnemy;
 
 ═action:cast_sleep;
@@ -470,6 +472,31 @@ effect:cast_hurtmore
     rand:ints.damage=58,65;
     run:DamageEnemy;
 
+═action:PlayerTurn;
+    if:player.status=sleep;
+        run:WakePlayer;
+    endif;
+    if:player.status=stop;
+        run:WakePlayer;
+    
+═action:WakePlayer;
+    rand:ints.wake=0,100;
+    if:ints.wake<50;
+        set:player.status=ok;
+    
+    
+═action:EnemyTurn;
+    if:enemy.status=sleep;
+        run:WakeEnemy;
+    endif;
+    if:player.status=stop;
+        run:WakeEnemy;
+    
+═action:WakeEnemy;
+    rand:ints.wake=0,100;
+    if:ints.wake<50;
+        set:enemy.status=ok;
+
 ═action:PlayerAttack;
     setto:ints.damage=player.attack;
     setto:ints.defense=enemy.agility;
@@ -491,9 +518,8 @@ effect:cast_hurtmore
 
 ═action:DamageEnemy;
     sub:enemy.hp=ints.damage;
-    if:enemy.hp>0;
-        say:ENEMYNAME takes ints.damage damage.;
-    else;
+    csay:The ENEMYNAME's Hit Points have been reduced by ints.damage.;
+    if:enemy.hp<1;
         run:WinEncounter;
 
 ═action:attack;
@@ -508,8 +534,8 @@ effect:cast_hurtmore
         sub:ints.damage=ints.defense;
         div:ints.damage=4;
     endif;
+    csay:ENEMYNAME attacks! Thou hast lost ints.damage hp.;
     run:DamagePlayer;
-    say:ENEMYNAME attacks! Thou hast lost ints.damage hp.;
 
 
 ═action:hurt;
@@ -547,8 +573,8 @@ effect:cast_hurtmore
     if:playerGear.armor=Erdrick's Armor;
         div:ints.damage=3;
     endif;
+    csay:ENEMYNAME cast hurtmore! Thou hast lost ints.damage hp.;
     run:DamagePlayer;
-    say:ENEMYNAME cast hurtmore! Thou hast lost ints.damage hp.;
 
 ═action:breath;
     rand:ints.damage=16,23;
@@ -558,8 +584,8 @@ effect:cast_hurtmore
     if:playerGear.armor=Erdrick's Armor;
         div:ints.damage=3;
     endif;
+    csay:ENEMYNAME hast horrid breath! Thou hast lost ints.damage hp.;
     run:DamagePlayer;
-    say:ENEMYNAME hast horrid breath! Thou hast lost ints.damage hp.;
 
 ═action:strongbreath;
     rand:ints.damage=65,72;
@@ -569,8 +595,8 @@ effect:cast_hurtmore
     if:playerGear.armor=Erdrick's Armor;
         div:ints.damage=3;
     endif;
+    csay:ENEMYNAME hast breath of fire! Thou hast lost ints.damage hp.;
     run:DamagePlayer;
-    say:ENEMYNAME hast breath of fire! Thou hast lost ints.damage hp.;
 
 ═action:run;
     rand:ints.run=0,100;
