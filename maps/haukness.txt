@@ -18,3 +18,12 @@ dd1177c71877777f1fcc
 cd1c1111c777d77fffff
 fddd7777777ddd7ccccc
 ccdffff7fddddfffcfff║type:exit,exit:edge,map:outworld,x:-1,y:-1,targetX:28,targetY:92
+║type:npc,character:trees,name:door,x:18,y:12,blocks:false═visible:bools.axeKnight:true═action:Search;
+    encounter:Axe Knight;
+═encounter:Search;
+    set:bools.axeKnight=false;
+    set:visible=false;
+    give:Erdrick's Armor;
+    say:Hero searched the ground all about. Hero discovers the Erdrick’s Armor.;
+║type:encounters,id:0═Werewolf,Starwyvern,Wizard,Green Dragon
+║type:encounterMap═0

@@ -31,19 +31,27 @@ kk777777771177777777kkkkkkkkk2║type:npc,character:knight,name:Sir StandAround,
 ║type:npc,character:knight,name:Sir StandAround,x:8,y:8,direction:up═action:Talk;say:If thou art planning to take a rest, first see King Lorik.;
 ║type:npc,character:knight,name:Sir StandAround,x:9,y:27,direction:right═action:Talk;say:Welcome to Tantegel Castle.;
 ║type:npc,character:knight,name:Sir StandAround,x:12,y:27,direction:left═action:Talk;say:Welcome to Tantegel Castle.;
-║type:npc,character:knight,name:Sir WalkAround,x:15,y:20,direction:right,walk:true═action:Talk;say:Where oh where can I find Princess Gwaelin?;
+║type:npc,character:knight,name:Sir Nice Guy,x:15,y:20,direction:right,walk:true═action:Talk;
+    if:bools.rescued=true;
+        say:Oh, my dearest Gwaelin! I hate thee, Hero.;
+    else;
+        say:Where oh where can I find Princess Gwaelin?;
 ║type:npc,character:knight,name:Sir WalkAround,x:26,y:15,direction:right,walk:true═action:Talk;say:If thy Hit Points are high enough, by all means, enter.;
 ║type:npc,character:knight,name:Sir WalkAround,x:7,y:1,direction:right,walk:true═action:Talk;say:When entering the cave, take with thee a torch.;
 ║type:npc,character:soldier,name:Private WalkAround,x:22,y:21,direction:right,walk:true═action:Talk;say: In Garinham, look for the grave of Garin. Thou must push on a wall of darkness there.;
 ║type:npc,character:man,name:Some Guy,x:2,y:8═action:Talk;say:To become strong enough to face future trials thou must first battle many foes.;
 ║type:npc,character:merchant,name:Merchant,x:24,y:1═action:Talk;say:Magic keys! They will unlock any door.;═action:Buy;ask:Dost thou wish to purchase one for 53 GOLD?;═no:Buy;say:I will see thee later.═yes:Buy;if:player.gold<53;say:Thou hast not enough money. I will see thee later.;else;sub:player.gold=53;add:player.keys=1;say:Here, take this key.;
-║type:npc,character:wiseguy,name:Old Guy,x:20,y:26═action:Talk;say:Hero’s coming was foretold by legend. May the light shine upon this brave warrior.;
+║type:npc,character:wiseguy,name:Old Guy,x:20,y:26═action:Talk;setto:player.mp=playerMax.mp;say:Hero’s coming was foretold by legend. May the light shine upon this brave warrior.;
 ║type:npc,character:chest,name:chest,x:1,y:13═visible:bools.chest4:true═action:Take;add:player.gold=9;set:bools.chest3=false;set:visible=false;say:thou hast gained 9 gold;
 ║type:npc,character:chest,name:chest,x:2,y:14═visible:bools.chest5:true═action:Take;add:player.gold=13;set:bools.chest3=false;set:visible=false;say:thou hast gained 13 gold;
 ║type:npc,character:chest,name:chest,x:3,y:15═visible:bools.chest6:true═action:Take;add:player.gold=9;set:bools.chest3=false;set:visible=false;say:thou hast gained 9 gold;
 ║type:npc,character:chest,name:chest,x:1,y:15═visible:bools.chest7:true═action:Take;add:player.gold=12;set:bools.chest3=false;set:visible=false;say:thou hast gained 12 gold;
 ║type:npc,character:man,name:Some Guy,x:10,y:13,walk:true═action:Talk;say:There was a time when Brecconary was a paradise. Then the Dragonlord’s minions came.;
-║type:npc,character:woman,name:Some Gal,x:13,y:13,walk:true═action:Talk;say:Where oh where can I find Princess Gwaelin?;
+║type:npc,character:woman,name:Some Gal,x:13,y:13,walk:true═action:Talk;
+    if:bools.rescued=true;
+        say:Thank you for saving the Princess.;
+    else;
+        say:Where oh where can I find Princess Gwaelin?;
 ║type:npc,character:woman,name:Some Gal,x:26,y:5,walk:true═action:Talk;say:When the sun and rain meet, a Rainbow Bridge shall appear. It’s a legend.;
 ║type:npc,character:wiseguy,name:old guy,x:19,y:13,walk:true═action:Talk;say:Let us wish the warrior well! May the light be thy strength!;
 ║type:npc,character:merchant,name:Some Guy,x:1,y:22,walk:true═action:Talk;say:We are merchants who have traveled much in this land. Many of our colleagues have been killed by servants of the Dragonlord.;
@@ -51,5 +59,5 @@ kk777777771177777777kkkkkkkkk2║type:npc,character:knight,name:Sir StandAround,
 ║type:npc,character:door,name:door,x:4,y:13═visible:bools.door2:true═action:Door;if:player.keys>0;sub:player.keys=1;set:bools.door2=false;set:visible=false;else;say:Thou hast not a key to use.;
 ║type:npc,character:door,name:door,x:18,y:6═visible:bools.door3:true═action:Door;if:player.keys>0;sub:player.keys=1;set:bools.door3=false;set:visible=false;else;say:Thou hast not a key to use.;
 ║type:exit,exit:stairs,map:throne,x:7,y:7,targetX:9,targetY:9
-║type:exit,exit:stairs,map:tanvault,x:29,y:29,targetX:3,targetY:6
+║type:exit,exit:stairs,map:tanvault,x:29,y:29,targetX:2,targetY:6
 ║type:exit,exit:edge,map:outworld,x:-1,y:-1,targetX:46,targetY:46

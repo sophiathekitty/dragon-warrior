@@ -47,3 +47,29 @@ kkkkkkkkfffff7ffffff║type:roof═00000000000000000000
 ║type:npc,character:door,name:door,x:17,y:10═visible:bools.door6:true═action:Door;if:player.keys>0;sub:player.keys=1;set:bools.door6=false;set:visible=false;else;say:Thou hast not a key to use.;
 ║type:exit,exit:edge,map:outworld,x:-1,y:-1,targetX:5,targetY:5
 ║type:exit,exit:edge,map:garingraveA,x:19,y:0,targetX:7,targetY:12
+║type:npc,character:woman,name:Snooty Gal,x:12,y:7,walk:true═action:Talk;say:I hate people! Leave me!;
+║type:npc,character:man,name:Snooty Guy,x:3,y:8,walk:true═action:Talk;say:Once there was a town called Hauksness far to the south, but I do not know if it still exists.;
+║type:npc,character:wiseguy,name:Old Snooty,x:13,y:8,walk:true═action:Talk;say:The say that Erdrick's armor was hidden long ago.;
+║type:npc,character:merchant,name:Snooty Merchant,x:9,y:6,walk:false═action:Talk;say:I suggest making a map if thy path leads into darkness.;
+║type:npc,character:chest,name:chest,x:9,y:5═visible:bools.chestMansion1:true
+═action:Take;
+    set:bools.chestMansion1=false;
+    give:Torch;
+    set:visible=false;
+    say:Thou hast gained a Torch;
+║type:npc,character:chest,name:chest,x:8,y:5═visible:bools.chestMansion2:true
+═action:Take;
+    set:bools.chestMansion2=false;
+    add:player.gold=17;
+    set:visible=false;
+    say:Thou hast gained 17 gold;
+║type:npc,character:chest,name:chest,x:8,y:6═visible:bools.chestMansion3:true
+═action:Take;
+    give:Herb
+    set:bools.chestMansion3=false;
+    set:visible=false;
+    say:Thou hast gained a Herb;
+║type:npc,character:wiseguy,name:Old Snooty,x:13,y:1,walk:true═action:Talk;say:The harp attracts enemies. Stay away from the grave in Garinham.;
+║type:npc,character:door,name:door,x:4,y:6═visible:bools.doorMansion2:true═action:Door;if:player.keys>0;sub:player.keys=1;set:bools.doorMansion2=false;set:visible=false;else;say:Thou hast not a key to use.;
+║type:npc,character:knight,name:Snooty Knight,x:3,y:5,walk:true═action:Talk;say:I'm too busy. Ask the other guard.;
+║type:npc,character:knight,name:Snooty Knight,x:5,y:5,walk:true═action:Talk;say:I'm too busy. Ask the other guard.;

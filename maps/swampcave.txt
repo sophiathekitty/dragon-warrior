@@ -28,3 +28,24 @@ f11f1f1fzzz
 f3111f1fzzz
 ffffffffzzz║type:exit,exit:edge,map:outworld,x:1,y:1,targetX:107,targetY:47
 ║type:exit,exit:edge,map:outworld,x:1,y:27,targetX:107,targetY:52
+║type:npc,character:door,name:door,x:6,y:18═visible:bools.greenDragon:true
+═action:Door;
+    encounter:Green Dragon;
+═encounter:Door;
+    set:bools.greenDragon=false;
+    set:visible=false;
+║type:npc,character:prisoner,name:Princess Gwaelin,x:6,y:16,direction:down═visible:bools.captured:true
+═action:Talk;
+    say:Thou art brave indeed to rescue me, Hero. I am Gwaelin, daughter of Lorik.;
+═action:Rescue;
+    ask:Will thou take me to the castle?;
+═yes:Rescue;
+    set:bools.rescued=true;
+    set:bools.rescued2=true;
+    set.bools.captured=false;
+    set:visible=false;
+    say:I’m so happy!;
+═no:Rescue;
+    say:But thou must.;
+║type:encounters,id:0═Druin,Ghost,Magician,Scorpion
+║type:encounterMap═0

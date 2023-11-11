@@ -37,6 +37,31 @@ kkkkkkkkkkkkkkkkkkkkkkkkkkkkkk║type:exit,exit:L,map:charlockC,x:10,y:29,target
 ║type:npc,character:chest,name:chest,x:12,y:13═visible:bools.charlockChest5:true═action:Take;give:Cursed Belt;bools.charlockChest5=false;set:visible=false;say:thou hast gained a Cursed Belt;
 ║type:npc,character:chest,name:chest,x:13,y:13═visible:bools.charlockChest6:true═action:Take;give:Herb;bools.charlockChest6=false;set:visible=false;say:thou hast gained a Herb;
 ║type:npc,character:door,name:door,x:17,y:12═visible:bools.charlockDoor3:true═action:Door;if:player.keys>0;sub:player.keys=1;set:bools.charlockDoor3=false;set:visible=false;else;say:Thou hast not a key to use.;
-║type:npc,character:dragonlord,name:Dragonlord,x:16,y:24═action:Talk;say:Welcome, Hero. I am the Dragonlord--King of Kings. I have been waiting long for one such as thee. I give thee now a chance to share this world and to rule half of it if thou will now stand beside me.;═action:Join;ask:What sayest thou? Will the great warrior stand with me? Really?;═yes:Join;say:Then half of this world is thine, half of the darkness, and.... If thou dies I can bring thee back for another attempt without loss of thy deeds to date. Thy journey is over. Take now a long, long rest. Hahahaha....;═no:Join;say:Thou art a fool!;encounter:Dragonlord;═action:Fight;encounter:Dragonlord;
+║type:npc,character:dragonlord,name:Dragonlord,x:16,y:24
+═action:Talk;
+    say:Welcome, Hero. I am the Dragonlord--King of Kings. I have been waiting long for one such as thee. I give thee now a chance to share this world and to rule half of it if thou will now stand beside me.;
+═action:Join;
+    ask:What sayest thou? Will the great warrior stand with me? Really?;
+═yes:Join;
+    set:player.hp=1;
+    say:Then half of this world is thine, half of the darkness, and.... If thou dies I can bring thee back for another attempt without loss of thy deeds to date. Thy journey is over. Take now a long, long rest. Hahahaha....;
+═no:Join;
+    csay:Thou art a fool!;
+    set:bools.phase1=false;
+    encounter:Dragonlord;
+═action:Fight;
+    set:bools.phase1=false;
+    encounter:Dragonlord;
+═action:Final Form;
+    set:bools.phase1=true;
+    encounter:Dragonlord Final Form;
+═encounter:Win;
+    if:bools.phase1=true;
+        set:bools.gameWon=true;
+        set:visible=false;
+        say:Thou hast found the Ball of Light. Radiance streams forth as thy hands touch the object and hold it aloft. Across the land spreads the brilliance until all shadows are banished and peace is restored.;
+    endif;
+    set:bools.phase1=true;
+    encounter:Dragonlord Final Form;
 ║type:encounters,id:0═Stoneman,Armored Knight,Wizard,Red Dragon
 ║type:encounterMap═0

@@ -9,5 +9,19 @@ ff111fff111f
 ff1ff111ff1f
 ff11f1f1f11f
 ff111111111f
-ffffffffffff║type:npc,character:wiseguy,name:Old Guy,x:5,y:6═action:Talk;say:oh sorry i haven't got this old guy setup yet... woops....;
+ffffffffffff║type:npc,character:wiseguy,name:Old Guy,x:5,y:6
+═action:Talk;
+    if:bools.gaveDrop=true;
+        say:I have no business with thy. No leave!;
+    endif;
+    if:inventory.Erdrick's Token=1;
+    if:inventory.Sunstone=1;
+    if:inventory.Rain Staff=1;
+        take:Sunstone;
+        take:Rain Staff;
+        give:Rainbow Drop;
+        set:bools.gaveDrop=true;
+        say:Now the sun and rain shall meet and the Rainbow Drop passes to thy keeping.;
+    endif;
+    say:In thy task thou hast failed. Alas, I fear thou art not the one Erdrick predicted would save us. Go now!;
 ║type:exit,exit:stairs,map:outworld,x:1,y:5,targetX:111,targetY:112

@@ -1,4 +1,4 @@
-type:game,title:Dragon Warrior,name:Dragon,engine:rpg
+type:game,title:Dragon Warrior,name:Dragon,engine:rpg,saveTag:Adventure Log
 ║type:player═
 
 level:1,
@@ -21,8 +21,6 @@ belt:═
 map:throne,
 x:2,
 y:5
-
-
 
 
 ║type:item,item_type:weapon═
@@ -125,6 +123,9 @@ effect:read_tablet═
 
 name:Silver Harp,
 effect:silver_harp═
+
+name:Fairy Flute,
+effect:fairy_flute═
 
 name:Rain Staff═
 
@@ -230,6 +231,9 @@ effect:cast_hurtmore
 
 
 ═action:DamagePlayer;
+    if:ints.damage<1;
+        set:ints.damage=1;
+    endif;
     sub:player.hp=ints.damage;
     if:player.hp>0;
         exit;
@@ -237,7 +241,7 @@ effect:cast_hurtmore
     go:outworld,47,45;
     setto:player.hp=playerMax.hp;
     setto:player.mp=playerMax.mp;
-    setto:int.gold=player.gold;
+    setto:ints.gold=player.gold;
     div:ints.gold=4;
     sub:player.gold=ints.gold;
     if:player.gold<0;
@@ -317,6 +321,9 @@ effect:cast_hurtmore
         encounter:map.encounter;
 
 ═action:StartEncounter;
+    set:enemy.status=ok;
+    set:player.status=ok;
+    set:bools.playerWon=false;
     rand:ints.run=0,255;
     mul:ints.run=player.agility;
     rand:ints.block=0,255;
@@ -329,6 +336,7 @@ effect:cast_hurtmore
         say:A ENEMYNAME hast surprised thou.;
 
 ═action:WinEncounter;
+    set:bools.playerWon=true;
     add:ints.fairySteps=5;
     add:player.xp=enemy.exp;
     add:player.gold=enemy.gold;
@@ -336,9 +344,11 @@ effect:cast_hurtmore
     if:playerMax.xp=0;
         set:playerMax.xp=7;
     endif;
+    csay:Thou hast done well in defeating the ENEMYNAME. Thy Experience increases by enemy.exp. Thy gold increases by enemy.gold.;
     if:player.xp<playerMax.xp;
-        csay:Thou hast done well in defeating the ENEMYNAME. Thy Experience increases by enemy.exp. Thy gold increases by enemy.gold.;
+        exit;
     endif;
+    csay:Courage and wit have served thee well. Thou hast been promoted to the next level.;
     add:player.level=1;
     if:player.level>30;
         player.level=30;
@@ -349,7 +359,7 @@ effect:cast_hurtmore
         add:playerMax.hp=7;
         add:playerMax.strength=1;
         run:CalculatePlayerStats;
-        say:Thou hast done well in defeating the ENEMYNAME. Thy Experience increases by enemy.exp. Thy gold increases by enemy.gold. Courage and wit have served thee well. Thou hast been promoted to the next level. Thy power increases by 1. Thy Maximum Hit Points increase by 7.;
+        say:Thy power increases by 1. Thy Maximum Hit Points increase by 7.;
     endif;
     if:player.level=3;
         set:playerMax.xp=47;
@@ -357,13 +367,138 @@ effect:cast_hurtmore
         add:playerMax.agility=2;
         add:playerMax.hp=2;
         add:playerMax.mp=7;
-        run:CalculatePlayerStats;
-        say:Thou hast done well in defeating the ENEMYNAME. Thy Experience increases by enemy.exp. Thy gold increases by enemy.gold. Courage and wit have served thee well. Thou hast been promoted to the next level. Thy power increases by 2. Thy Response Speed increases by 2. Thy Maximum Hit Points increase by 2. Thy Maximum Magic Points increase by 6. Thou hast learned a new spell.;
+        csay:Thy power increases by 2. Thy Response Speed increases by 2. Thy Maximum Hit Points increase by 2. Thy Maximum Magic Points increase by 6. Thou hast learned a new spell.;
     endif;
-    if:player.level>3;
+    if:player.level=4;
+        set:playerMax.xp=110;
+        add:playerMax.strength=2;
+        add:playerMax.agility=2;
+        add:playerMax.hp=2;
+        add:playerMax.mp=7;
+        csay:Thy Response Speed increases by 2. Thy Maximum Hit Points increase by 7. Thy Maximum Magic Points increase by 10. Thou hast learned a new spell.;
+    endif;
+    if:player.level=5;
+        set:playerMax.xp=220;
+        add:playerMax.strength=5;
+        add:playerMax.agility=2;
+        add:playerMax.hp=4;
+        add:playerMax.mp=4;
+        csay:Thy power increases by 5. Thy Response Speed increases by 2. Thy Maximum Hit Points increase by 4. Thy Maximum Magic Points increase by 4.;
+    endif;
+    if:player.level=6;
+        set:playerMax.xp=450;
+        add:playerMax.strength=4;
+        add:playerMax.hp=3;
+        add:playerMax.mp=3;
+        csay:Thy power increases by 4. Thy Maximum Hit Points increase by 3. Thy Maximum Magic Points increase by 3.;
+    endif;
+    if:player.level=7;
+        set:playerMax.xp=800;
+        add:playerMax.strength=2;
+        add:playerMax.agility=6;
+        add:playerMax.hp=2;
+        add:playerMax.mp=2;
+        csay:Thy power increases by 2. Thy Response Speed increases by 6. Thy Maximum Hit Points increase by 2. Thy Maximum Magic Points increase by 2. Thou hast learned a new spell.;
+    endif;
+    if:player.level=8;
+        set:playerMax.xp=1300;
+        add:playerMax.strength=4;
+        add:playerMax.agility=3;
+        add:playerMax.hp=6;
+        add:playerMax.mp=3;
+        csay:Thy power increases by 4. Thy Response Speed increases by 3. Thy Maximum Hit Points increase by 6. Thy Maximum Magic Points increase by 3.;
+    endif;
+    if:player.level=9;
+        set:playerMax.xp=2000;
+        add:playerMax.strength=8;
+        add:playerMax.agility=1;
+        add:playerMax.hp=4;
+        add:playerMax.mp=6;
+        csay:Thy power increases by 8. Thy Response Speed increases by 1. Thy Maximum Hit Points increase by 4. Thy Maximum Magic Points increase by 6. Thou hast learned a new spell.;
+    endif;
+    if:player.level=10;
+        set:playerMax.xp=2900;
+        add:playerMax.strength=5;
+        add:playerMax.agility=8;
+        add:playerMax.hp=4;
+        add:playerMax.mp=4;
+        csay:Thy power increases by 5. Thy Response Speed increases by 8. Thy Maximum Hit Points increase by 4. Thy Maximum Magic Points increase by 4. Thou hast learned a new spell.;
+    endif;
+    if:player.level=11;
+        set:playerMax.xp=4000;
+        add:playerMax.strength=5;
+        add:playerMax.agility=4;
+        add:playerMax.hp=8;
+        add:playerMax.mp=9;
+        csay:Thy power increases by 5. Thy Response Speed increases by 4. Thy Maximum Hit Points increase by 8. Thy Maximum Magic Points increase by 9.;
+    endif;
+    if:player.level=12;
+        set:playerMax.xp=5500;
+        add:playerMax.strength=8;
+        add:playerMax.agility=5;
+        add:playerMax.hp=1;
+        add:playerMax.mp=7;
+        csay:Thy power increases by 8. Thy Response Speed increases by 5. Thy Maximum Hit Point increase by 1. Thy Maximum Magic Points increase by 7. Thou hast learned a new spell.;
+    endif;
+    if:player.level=13;
+        set:playerMax.xp=7500;
+        add:playerMax.strength=4;
+        add:playerMax.agility=7;
+        add:playerMax.hp=7;
+        add:playerMax.mp=5;
+        csay:Thy power increases by 4. Thy Response Speed increases by 7. Thy Maximum Hit Points increase by 7. Thy Maximum Magic Points increase by 5. Thou hast learned a new spell.;
+    endif;
+    if:player.level=14;
+        set:playerMax.xp=10000;
+        add:playerMax.strength=8;
+        add:playerMax.agility=6;
+        add:playerMax.hp=8;
+        add:playerMax.mp=6;
+        csay:Thy power increases by 8. Thy Response Speed increases by 6. Thy Maximum Hit Points increase by 8. Thy Maximum Magic Points increase by 6.;
+    endif;
+    if:player.level=15;
+        set:playerMax.xp=13000;
+        add:playerMax.strength=8;
+        add:playerMax.agility=8;
+        add:playerMax.hp=8;
+        add:playerMax.mp=1;
+        csay:Thy power increases by 8. Thy Response Speed increases by 8. Thy Maximum Hit Points increase by 8. Thy Maximum Magic Point increase by 1. Thou hast learned a new spell.;
+    endif;
+    if:player.level=16;
+        set:playerMax.xp=16000;
+        add:playerMax.strength=4;
+        add:playerMax.agility=6;
+        add:playerMax.hp=6;
+        add:playerMax.mp=21;
+        csay:Thy power increases by 4. Thy Response Speed increases by 6. Thy Maximum Hit Points increase by 6. Thy Maximum Magic Points increase by 21.;
+    endif;
+    if:player.level=17;
+        set:playerMax.xp=19000;
+        add:playerMax.agility=7;
+        add:playerMax.hp=8;
+        add:playerMax.mp=5;
+        csay:Thy Response Speed increases by 7. Thy Maximum Hit Points increase by 8. Thy Maximum Magic Points increase by 5. Thou hast learned a new spell.;
+    endif;
+    if:player.level=18;
+        set:playerMax.xp=22000;
+        add:playerMax.strength=13;
+        add:playerMax.agility=5;
+        add:playerMax.hp=15;
+        add:playerMax.mp=7;
+        csay:Thy power increases by 13. Thy Response Speed increases by 5. Thy Maximum Hit Points increase by 15. Thy Maximum Magic Points increase by 7.;
+    endif;
+    if:player.level=19;
+        set:playerMax.xp=26000;
+        add:playerMax.strength=2;
+        add:playerMax.agility=2;
+        add:playerMax.hp=15;
+        add:playerMax.mp=6;
+        csay:Thy power increases by 2. Thy Response Speed increases by 2. Thy Maximum Hit Points increase by 15. Thy Maximum Magic Points increase by 6. Thou hast learned a new spell.;
+    endif;
+    if:player.level>19;
         setto:ints.xpIncrease=playerMax.xp;
-        div:ints.xpIncrease=3;
-        add:playerMax.xp=ints.xpIncrease;        
+        div:ints.xpIncrease=7;
+        add:playerMax.xp=ints.xpIncrease;
         rand:ints.hpIncrease=2,15;
         add:playerMax.hp=ints.hpIncrease;
         rand:ints.mpIncrease=2,20;
@@ -372,8 +507,9 @@ effect:cast_hurtmore
         add:playerMax.agility=ints.agilityIncrease;
         rand:ints.strengthIncrease=2,10;
         add:playerMax.strength=ints.strengthIncrease;
-        run:CalculatePlayerStats;
-        say:Thou hast done well in defeating the ENEMYNAME. Thy Experience increases by enemy.exp. Thy gold increases by enemy.gold. Courage and wit have served thee well. Thou hast been promoted to the next level. Thy strength hast increased by ints.strengthIncrease and thy agility hast increased by ints.agilityIncrease. Thy hp hast increased by ints.hpIncrease and thy mp hast increased by ints.mpIncrease. Maybe thou hast even learned a new spell? i'm kinda just doing random stat increases at this point... maybe i'll change this at some point.;
+        say:Thy power increases by ints.strengthIncrease. Thy Response Speed increases by ints.agilityIncrease. Thy Maximum Hit Points increase by ints.hpIncrease. Thy Maximum Magic Points increase by ints.mpIncrease.;
+    endif;
+    run:CalculatePlayerStats;
 
 ═action:return_home;
     if:map.name=outworld;
@@ -387,6 +523,7 @@ effect:cast_hurtmore
     set:ints.fairySteps=128;
 
 ═action:herb;
+    take:Herb;
     rand:ints.restore=20,30;
     add:player.hp=ints.restore;
     if:player.hp>playerMax.hp;
@@ -395,27 +532,40 @@ effect:cast_hurtmore
 ═action:silver_harp;
     encounter:Slime,Red Slime,Drakee,Ghost,Magician,Scorpion;
 
+═action:fairy_flute;
+    if:enemy.name=Golem;
+        set:enemy.status=sleep;
+        say:Hero blew the Fairies’ Flute. Quietly Golem closes his eyes and settles into sleep.;
+    else;
+        say:Hero blew the Fairies’ Flute. But nothing happened.;
+
 
 ═action:distance_from_castle;
-    if:ints.north>0;if:ints.west>0;
-        say:Thou art ints.north North by ints.west West of the castle my love.;
+    setto:ints.nextLevel=playerMax.xp;
+    sub:ints.nextLevel=player.xp;
+    csay:Heed my voice, Hero, for this is Gwaelin. To reach the next level thou must raise thy Experience Points by ints.nextLevel. My hope is with thee. From where thou art now, my castle lies;
+    set:bools.and=false;
+    if:ints.north>0;
+        csay:ints.north south.;
+        set:bools.and=true;
     endif;
-    if:ints.north>0;if:ints.east>0;
-        say:Thou art ints.north North by ints.east East of the castle my love.;
+    if:ints.south>0;
+        set:bools.and=true;
+        csay:ints.south north.;
     endif;
-    if:ints.north>0;if:ints.east=0;
-        say:Thou art ints.north North of the castle my love.;
+    if:ints.west>0;
+        run:maybe_and;
+        csay:ints.west east.;
     endif;
-    if:ints.south>0;if:ints.west>0;
-        say:Thou art ints.south South by ints.west West of the castle my love.;
+    if:ints.east>0;
+        run:maybe_and;
+        csay:ints.east west.;
     endif;
-    if:ints.south>0;if:ints.east>0;
-        say:Thou art ints.south South by ints.east East of the castle my love.;
-    endif;
-    if:ints.south>0;if:ints.east=0;
-        say:Thou art ints.south South of the castle my love.;
-    endif;
-    
+    say:I love thee, Hero.;
+
+═action:maybe_and;
+    if:bools.and=true;
+        csay:and;
 
 ═action:read_tablet;
     say:The tablet reads as follows: ‘I am Erdrick and thou art my descendant. Three items were needed to reach the Isle of Dragons, which is south of Brecconary. I gathered these items, reached the island, and there defeated a creature of great evil. Now I have entrusted the three items to three worthy keepers. Their descendants will protect the items until thy quest leads thee to seek them out. When a new evil arises, find the three items, then fight!’;
@@ -440,10 +590,10 @@ effect:cast_hurtmore
 ═action:cast_sleep;
     rand:ints.spellChance=1,16;
     if:enemy.sleepResist>ints.spellChance;
-        say:Thou hast cast Sleep but enemy.name resists.;
+        say:Thou hast cast Sleep but ENEMYNAME resists.;
     endif;
     set:enemy.status=sleep;
-    say:Thou hast put enemy.name to sleep.;
+    say:Thou hast put ENEMYNAME to sleep.;
 
 ═action:cast_radiant;
     set:ints.radiantSteps=200;
@@ -473,29 +623,41 @@ effect:cast_hurtmore
     run:DamageEnemy;
 
 ═action:PlayerTurn;
-    if:player.status=sleep;
+    ifnot:player.status=ok;
         run:WakePlayer;
     endif;
-    if:player.status=stop;
-        run:WakePlayer;
+    if:player.status=sleep;
+        set:encounter.playerTurn=false;
+        say:Thou art asleep.;
     
 ═action:WakePlayer;
     rand:ints.wake=0,100;
-    if:ints.wake<50;
-        set:player.status=ok;
+    if:ints.wake>50;
+        exit;
+    endif;
+    if:enemy.status=sleep;
+        csay:Thou hast awoken.;
+    endif;
+    set:player.status=ok;
     
     
 ═action:EnemyTurn;
-    if:enemy.status=sleep;
+    ifnot:enemy.status=ok;
         run:WakeEnemy;
     endif;
-    if:player.status=stop;
-        run:WakeEnemy;
+    if:enemy.status=sleep;
+        set:encounter.playerTurn=true;
+        say:ENEMYNAME art asleep.;
     
 ═action:WakeEnemy;
     rand:ints.wake=0,100;
-    if:ints.wake<50;
-        set:enemy.status=ok;
+    if:ints.wake>25;
+        exit;
+    endif;
+    if:enemy.status=sleep;
+        csay:ENEMYNAME wakes up.;
+    endif;
+    set:enemy.status=ok;
 
 ═action:PlayerAttack;
     setto:ints.damage=player.attack;
@@ -503,6 +665,7 @@ effect:cast_hurtmore
     div:ints.defense=2;
     sub:ints.damage=ints.defense;
     div:ints.damage=4;
+    csay:Thou attacks ENEMYNAME.;
     run:DamageEnemy;
 
 ═action:PlayerRun;
@@ -517,13 +680,16 @@ effect:cast_hurtmore
         say:ENEMYNAME hast blocked thy attempt to flee.;
 
 ═action:DamageEnemy;
+    if:ints.damage<1;
+        set:ints.damage=1;
+    endif;
     sub:enemy.hp=ints.damage;
     csay:The ENEMYNAME's Hit Points have been reduced by ints.damage.;
     if:enemy.hp<1;
         run:WinEncounter;
 
 ═action:attack;
-    if:player.defense>enemy.strength;
+    if:player.defense<enemy.strength;
         setto:ints.damage=enemy.strength;
         add:ints.damage=4;
         div:ints.damage=6;

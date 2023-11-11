@@ -1023,7 +1023,7 @@ type:enemy,x:-9,y:-9,name:Slime,strength:5,agility:3,hp:3,sleepResist:0,stopResi
 
 
 
-║type:enemy,x:-17,y:-23,name:Demon Knight,strength:79,agility:64,hp:38,sleepResist:15,stopResist:15,hurtResist:15,dodge:15,exp:37gold:149,pattern:attack═
+║type:enemy,x:-17,y:-23,name:Demon Knight,strength:79,agility:64,hp:38,sleepResist:15,stopResist:15,hurtResist:15,dodge:15,exp:37,gold:149,pattern:attack═
 
 
 
@@ -1069,7 +1069,7 @@ type:enemy,x:-9,y:-9,name:Slime,strength:5,agility:3,hp:3,sleepResist:0,stopResi
 
 
 
-║type:enemy,x:-22,y:-21,name:Werewolf,strength:86,agility:70,hp:46,sleepResist:7,stopResist:15,hurtResist:0,dodge:7,exp:40gold:154,pattern:attack═
+║type:enemy,x:-22,y:-21,name:Werewolf,strength:86,agility:70,hp:46,sleepResist:7,stopResist:15,hurtResist:0,dodge:7,exp:40,gold:154,pattern:attack═
 
 
 
@@ -1110,7 +1110,7 @@ type:enemy,x:-9,y:-9,name:Slime,strength:5,agility:3,hp:3,sleepResist:0,stopResi
 
 
 
-║type:enemy,x:-23,y:-19,name:Green Dragon,strength:88,agility:74hp:49,sleepResist:7,stopResist:15hurtResist:2,dodge:2,exp: 45,gold:159,pattern:breath,attack,attack,attack═
+║type:enemy,x:-23,y:-19,name:Green Dragon,strength:88,agility:74,hp:49,sleepResist:7,stopResist:15,hurtResist:2,dodge:2,exp:45,gold:159,pattern:breath,attack,attack,attack═
 
 
 
@@ -1460,7 +1460,7 @@ type:enemy,x:-9,y:-9,name:Slime,strength:5,agility:3,hp:3,sleepResist:0,stopResi
 
 
 
-║type:enemy,x:-13,y:-19,name:Dragonlord,strength:90,agility:75,hp:76,sleepResist:15,stopResist:15,hurtResist:15,dodge:0,exp:0,gold:0,pattern:stop,hurtmore,hurtmore,hurtmore,attack═
+║type:enemy,x:-13,y:-19,name:Dragonlord,strength:90,agility:75,hp:76,sleepResist:15,stopResist:15,hurtResist:15,dodge:0,exp:0,gold:0,pattern:hurtmore,stop,hurtmore,hurtmore,attack═
 
 
 
