@@ -22,3 +22,4 @@ ffffffffffff║type:npc,character:chest,name:chest,x:4,y:5═action:Take;add:pla
     endif;
     say:Thy bravery must be proven. Thus, I propose a test. There is a Silver Harp that beckons to the creatures of the Dragonlord. Bring this to me and I will reward thee with the Staff of Rain.;
 ║type:exit,exit:edge,map:outworld,x:5,y:10,targetX:84,targetY:4
+║type:music═DragonWarriorVillage

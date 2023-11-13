@@ -71,3 +71,4 @@ ffffffff1f44411444f1ffffffff
 ║type:npc,character:woman,name:Some Gal,x:3,y:13,walk:true═action:Talk;say:What shall I get for thy dinner?;
 ║type:npc,character:knight,name:Inn Patrol,x:28,y:13,walk:true═action:Talk;say:See King Lorik when thy experience levels are raised.;
 ║type:npc,character:merchant,name:Inn Patrol,x:1,y:11,walk:true═action:Talk;say:Come buy my radishes! They are fresh and cheap. Buy thy radishes today!;
+║type:music═DragonWarriorVillage

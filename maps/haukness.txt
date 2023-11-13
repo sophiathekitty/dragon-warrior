@@ -27,3 +27,4 @@ ccdffff7fddddfffcfff║type:exit,exit:edge,map:outworld,x:-1,y:-1,targetX:28,tar
     say:Hero searched the ground all about. Hero discovers the Erdrick’s Armor.;
 ║type:encounters,id:0═Werewolf,Starwyvern,Wizard,Green Dragon
 ║type:encounterMap═0
+║type:music═DragonWarriorCave

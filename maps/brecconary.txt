@@ -77,3 +77,4 @@ fffffffffffffffkkkkkkkkkkkkkkk║type:roof═000000000000000000000000000000
 ║type:npc,character:door,name:door,x:5,y:23═visible:bools.door4:true═action:Door;if:player.keys>0;sub:player.keys=1;set:bools.door4=false;set:visible=false;else;say:Thou hast not a key to use.;
 ║type:npc,character:door,name:door,x:21,y:6═visible:bools.door5:true═action:Door;if:player.keys>0;sub:player.keys=1;set:bools.door5=false;set:visible=false;else;say:Thou hast not a key to use.;
 ║type:exit,exit:edge,map:outworld,x:-1,y:-1,targetX:51,targetY:44
+║type:music═DragonWarriorVillage

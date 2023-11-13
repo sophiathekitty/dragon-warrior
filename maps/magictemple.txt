@@ -25,3 +25,4 @@ ffffffffffff║type:npc,character:wiseguy,name:Old Guy,x:5,y:6
     endif;
     say:In thy task thou hast failed. Alas, I fear thou art not the one Erdrick predicted would save us. Go now!;
 ║type:exit,exit:stairs,map:outworld,x:1,y:5,targetX:111,targetY:112
+║type:music═DragonWarriorVillage

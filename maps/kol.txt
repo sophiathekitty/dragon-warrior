@@ -41,3 +41,4 @@ ff1ff17171111g11f88c8888
 ║type:npc,character:soldier,name:Town Patrol,x:6,y:6,walk:true═action:Talk;say:Hast thou seen Nester? I think he may need help.;
 ║type:npc,character:knight,name:Inn Patrol,x:12,y:9,walk:true═action:Talk;say:Golem is afraid of the music of the flute, so ’tis said.;
 ║type:exit,exit:edge,map:outworld,x:-1,y:-1,targetX:107,targetY:13
+║type:music═DragonWarriorVillage

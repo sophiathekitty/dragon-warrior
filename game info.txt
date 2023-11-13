@@ -1,4 +1,4 @@
-type:game,title:Dragon Warrior,name:Dragon,engine:rpg,saveTag:Adventure Log
+type:game,title:Dragon Warrior,name:Dragon,engine:rpg,save_tag:Adventure Log,battleMusic:DragonWarriorBattle,titleMusic:DragonWarriorTitle
 ║type:player═
 
 level:1,
@@ -231,8 +231,8 @@ effect:cast_hurtmore
 
 
 ═action:DamagePlayer;
-    if:ints.damage<1;
-        set:ints.damage=1;
+    if:ints.damage<0;
+        set:ints.damage=0;
     endif;
     sub:player.hp=ints.damage;
     if:player.hp>0;
@@ -568,9 +568,12 @@ effect:cast_hurtmore
         csay:and;
 
 ═action:read_tablet;
-    say:The tablet reads as follows: ‘I am Erdrick and thou art my descendant. Three items were needed to reach the Isle of Dragons, which is south of Brecconary. I gathered these items, reached the island, and there defeated a creature of great evil. Now I have entrusted the three items to three worthy keepers. Their descendants will protect the items until thy quest leads thee to seek them out. When a new evil arises, find the three items, then fight!’;
+    say:The tablet reads as follows, "I am Erdrick and thou art my descendant. Three items were needed to reach the Isle of Dragons, which is south of Brecconary. I gathered these items, reached the island, and there defeated a creature of great evil. Now I have entrusted the three items to three worthy keepers. Their descendants will protect the items until thy quest leads thee to seek them out. When a new evil arises, find the three items, then fight!";
 
 ═action:cast_heal;
+    if:player.status=stop;
+        exit;
+    endif;
     rand:ints.restore=25,30;
     add:player.hp=ints.restore;
     if:player.hp>playerMax.hp;
@@ -579,6 +582,9 @@ effect:cast_hurtmore
     say:Thou hast restore ints.restore hp.;
 
 ═action:cast_hurt;
+    if:player.status=stop;
+        exit;
+    endif;
     rand:ints.spellChance=1,16;
     if:enemy.hurtResist>ints.spellChance;
         say:Thou casts Hurt but fail to hit thou target.;
@@ -588,6 +594,9 @@ effect:cast_hurtmore
     run:DamageEnemy;
 
 ═action:cast_sleep;
+    if:player.status=stop;
+        exit;
+    endif;
     rand:ints.spellChance=1,16;
     if:enemy.sleepResist>ints.spellChance;
         say:Thou hast cast Sleep but ENEMYNAME resists.;
@@ -600,6 +609,9 @@ effect:cast_hurtmore
     set:map.darkRadius=4;
     say:Thou hast cast radiant.;
 ═action:cast_stop;
+    if:player.status=stop;
+        exit;
+    endif;
     rand:ints.spellChance=1,16;
     if:enemy.stopResist>ints.spellChance;
         say:Thou hast cast Stop but it had no effect.;
@@ -610,11 +622,17 @@ effect:cast_hurtmore
     go:map.Exit;
 
 ═action:cast_healmore;
+    if:player.status=stop;
+        exit;
+    endif;
     rand:ints.restore=25,30;
     add:player.hp=ints.restore;
     if:player.hp>playerMax.hp;
         setto:player.hp=playerMax.hp;
 ═action:cast_hurtmore;
+    if:player.status=stop;
+        exit;
+    endif;
     rand:ints.spellChance=1,16;
     if:enemy.hurtResist>ints.spellChance;
         say:Thou casts Hurt but fail to hit thou target.;
@@ -635,7 +653,7 @@ effect:cast_hurtmore
     if:ints.wake>50;
         exit;
     endif;
-    if:enemy.status=sleep;
+    if:player.status=sleep;
         csay:Thou hast awoken.;
     endif;
     set:player.status=ok;
@@ -650,7 +668,7 @@ effect:cast_hurtmore
         say:ENEMYNAME art asleep.;
     
 ═action:WakeEnemy;
-    rand:ints.wake=0,100;
+    rand:ints.wake=5,100;
     if:ints.wake>25;
         exit;
     endif;
@@ -700,6 +718,9 @@ effect:cast_hurtmore
         sub:ints.damage=ints.defense;
         div:ints.damage=4;
     endif;
+    if:ints.damage<0;
+        set:ints.damage=0;
+    endif;
     csay:ENEMYNAME attacks! Thou hast lost ints.damage hp.;
     run:DamagePlayer;
 
@@ -712,8 +733,8 @@ effect:cast_hurtmore
     if:playerGear.armor=Erdrick's Armor;
         div:ints.damage=3;
     endif;
+    csay:ENEMYNAME cast hurt! Thou hast lost ints.damage hp.;
     run:DamagePlayer;
-    say:ENEMYNAME cast hurt! Thou hast lost ints.damage hp.;
 
 ═action:stop;
     rand:ints.stopChance=0,100;

@@ -17,3 +17,11 @@ ffffffffffffffff║type:exit,exit:edge,map:outworld,x:1,y:8,targetX:32,targetY:6
 ║type:exit,exit:edge,map:mountaincaveB,x:1,y:1,targetX:1,targetY:1
 ║type:exit,exit:edge,map:mountaincaveB,x:7,y:6,targetX:7,targetY:6
 ║type:exit,exit:edge,map:mountaincaveB,x:13,y:13,targetX:13,targetY:13
+║type:npc,character:chest,name:chest,x:14,y:6
+═visible:bools.chestMountainCave1:true
+═action:Take;
+    give:Herb;
+    set:bools.chestMountainCave1=false;
+    set:visible=false;
+    say:Thou hast gained a Herb;
+║type:music═DragonWarriorCave

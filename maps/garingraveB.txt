@@ -20,3 +20,4 @@ ffffffffffffffff║type:exit,exit:A,map:garingraveA,x:12,y:3,targetX:2,targetY:1
 ║type:exit,exit:edge,map:outworld,x:-1,y:-1,targetX:5,targetY:5
 ║type:encounters,id:0═Wolf,Warlock,Skeleton,Metal Scorpion
 ║type:encounterMap═0
+║type:music═DragonWarriorCave

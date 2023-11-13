@@ -61,3 +61,4 @@ kk777777771177777777kkkkkkkkk2║type:npc,character:knight,name:Sir StandAround,
 ║type:exit,exit:stairs,map:throne,x:7,y:7,targetX:9,targetY:9
 ║type:exit,exit:stairs,map:tanvault,x:29,y:29,targetX:2,targetY:6
 ║type:exit,exit:edge,map:outworld,x:-1,y:-1,targetX:46,targetY:46
+║type:music═DragonWarriorCastle

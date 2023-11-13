@@ -113,3 +113,4 @@ set:visible=false;say:thou hast gained a key;
     set:playerMax.strength=100;
     set:playerMax.agility=100;
     run:CalculatePlayerStats;
+║type:music═DragonWarriorThroneRoom

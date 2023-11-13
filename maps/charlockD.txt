@@ -65,3 +65,4 @@ kkkkkkkkkkkkkkkkkkkkkkkkkkkkkk║type:exit,exit:L,map:charlockC,x:10,y:29,target
     encounter:Dragonlord Final Form;
 ║type:encounters,id:0═Stoneman,Armored Knight,Wizard,Red Dragon
 ║type:encounterMap═0
+║type:music═DragonWarriorCave

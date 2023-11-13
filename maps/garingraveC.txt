@@ -31,3 +31,4 @@ ffffffffffffffffffffff║type:exit,exit:B,map:garingraveB,x:19,y:2,targetX:13,ta
 ║type:npc,character:chest,name:chest,x:14,y:7═visible:bools.graveChest5:true═action:Take;give:Silver Harp;bools.graveChest5=false;set:visible=false;say:thou hast gained the Silver Harp;
 ║type:encounters,id:0═Wolflord,Wraith Knight,Specter,Druinlord,Drollmagi
 ║type:encounterMap═0
+║type:music═DragonWarriorCave

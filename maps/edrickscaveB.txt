@@ -9,4 +9,17 @@ f1ff1f11111f
 f1111ff1ff1f
 ff1f11f1f11f
 f111f111f31f
-ffffffffffff║type:exit,exit:edge,map:erdrickcaveA,x:9,y:10,targetX:10,targetY:10║type:exit,exit:edge,map:outworld,x:1,y:1,targetX:31,targetY:15
+ffffffffffff║type:exit,exit:stairs,map:erdrickcaveA,x:10,y:4,targetX:10,targetY:10
+║type:exit,exit:edge,map:outworld,x:-1,y:-1,targetX:31,targetY:15
+║type:npc,character:chest,name:chest,x:10,y:4═visible:bools.chestTablet:true═action:Read;
+    say:The tablet reads as follows, "I am Erdrick and thou art my descendant. Three items were needed to reach the Isle of Dragons, which is south of Brecconary. I gathered these items, reached the island, and there defeated a creature of great evil. Now I have entrusted the three items to three worthy keepers. Their descendants will protect the items until thy quest leads thee to seek them out. When a new evil arises, find the three items, then fight!";
+═action:Take;
+    ask:Art thou sure?;
+═yes:Take;
+    set:bools.chestTablet=false;
+    give:Erdrick's Tablet;
+    set:visible=false;
+    say:Thou hast gained Erdrick's Tablet;
+═no:Take;
+    say:Thou can always return to read the tablet.;
+║type:music═DragonWarriorCave

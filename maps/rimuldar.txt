@@ -74,3 +74,4 @@ kkf1111f1111f8cccc87788kkkk777
 ║type:npc,character:soldier,name:Inn Patrol,x:3,y:22,walk:true═action:Talk;say:You are Hero? It has been long since last we met.;
 ║type:npc,character:soldier,name:South Patrol,x:15,y:26,walk:true═action:Talk;say:Art thou the descendant of Erdrick? Hast thou any proof?;
 ║type:npc,character:soldier,name:House Patrol,x:3,y:26,walk:true═action:Talk;say:In this world is there any sword that can pierce the scales of the Dragonlord?;
+║type:music═DragonWarriorVillage

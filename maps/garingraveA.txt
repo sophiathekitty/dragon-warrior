@@ -28,3 +28,4 @@ ffffffffffffffffffffff║type:exit,exit:stairs,map:garinham,x:7,y:12,targetX:19,
 ║type:npc,character:door,name:door,x:18,y:18═visible:bools.graveDoor:true═action:Door;if:player.keys>0;sub:player.keys=1;set:bools.graveDoor=false;set:visible=false;else;say:Thou hast not a key to use.;
 ║type:encounters,id:0═Drakeema,Droll,Poltergeist,Warlock,Skeleton
 ║type:encounterMap═0
+║type:music═DragonWarriorCave
