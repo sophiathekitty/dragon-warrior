@@ -678,9 +678,18 @@ effect:cast_hurtmore
     set:enemy.status=ok;
 
 ═action:PlayerAttack;
+    rand:ints.dodge=1,64;
+    if:enemy.dodge>ints.dodge;
+        say:Thou attacks ENEMYNAME. But missed!;
+    endif;
     setto:ints.damage=player.attack;
     setto:ints.defense=enemy.agility;
-    div:ints.defense=2;
+    rand:ints.Crits=1,32;
+    if:ints.Crits>1;
+        div:ints.defense=2;
+    else;
+        csay:Excellent move!;
+    endif;
     sub:ints.damage=ints.defense;
     div:ints.damage=4;
     csay:Thou attacks ENEMYNAME.;
@@ -697,6 +706,18 @@ effect:cast_hurtmore
     else;
         say:ENEMYNAME hast blocked thy attempt to flee.;
 
+═action:EnemyRun;
+    setto:ints.heroStr=player.strength;
+    div:ints.heroStr=2;
+    if:ints.heroStr<enemy.strength;
+        exit;
+    endif;
+    rand:ints.runChance=0,3;
+    if:ints.runChance=0;
+        set:encounter.over=true;
+        say:ENEMYNAME hast ran away.;
+
+
 ═action:DamageEnemy;
     if:ints.damage<1;
         set:ints.damage=1;
@@ -707,6 +728,10 @@ effect:cast_hurtmore
         run:WinEncounter;
 
 ═action:attack;
+    rand:ints.dodge=0,64;
+    if:player.agility>ints.dodge;
+        say:ENEMYNAME attacks! But missed!;
+    endif;    
     if:player.defense<enemy.strength;
         setto:ints.damage=enemy.strength;
         add:ints.damage=4;
