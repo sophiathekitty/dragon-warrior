@@ -21,24 +21,79 @@ f1f1111111f8fffff8cccf88
 f111f11111fff111f8cccf88
 ff1ff17171111g11f88c8888
 8777f11111fff111f88c8888
-877ffffffff8fffff88c8888║type:npc,character:merchant,name:Armory Shop,x:22,y:12═action:Talk;say:We deal in weapons and armor.;═action:Buy;shop:Copper Sword,Hand Axe,Half Plate,Full Plate,Small Shield;═action:Sell;sell;
-║type:npc,character:merchant,name:Item Shop,x:14,y:21═action:Talk;say:Welcome. We deal in tools.;═action:Buy;shop:Herb,Torch,Dragon's Scale,Wings;═action:Sell;sell;
+877ffffffff8fffff88c8888║type:npc,character:merchant,name:Armory Shop,x:22,y:12═action:Talk;
+    if:bools.gameWon=true;
+        say:Hurrah! Hurrah! Long live PLAYERNAME!;
+    else;
+        say:We deal in weapons and armor.;═action:Buy;shop:Copper Sword,Hand Axe,Half Plate,Full Plate,Small Shield;═action:Sell;sell;
+║type:npc,character:merchant,name:Item Shop,x:14,y:21═action:Talk;
+    if:bools.gameWon=true;
+        say:Thou hast brought us peace, again.;
+    else;
+        say:Welcome. We deal in tools.;═action:Buy;shop:Herb,Torch,Dragon's Scale,Wings;═action:Sell;sell;
 ║type:npc,character:chest,name:chest,x:15,y:20═action:Take;add:player.gold=9;set:bools.chest3=false;set:visible=false;say:thou hast gained 9 gold;
 ║type:npc,character:chest,name:chest,x:15,y:21═action:Take;add:player.gold=9;set:bools.chest3=false;set:visible=false;say:thou hast gained 9 gold;
 ║type:npc,character:chest,name:chest,x:15,y:22═action:Take;add:player.gold=9;set:bools.chest3=false;set:visible=false;say:thou hast gained 9 gold;
-║type:npc,character:man,name:Some Guy,x:13,y:14,walk:true═action:Talk;say:Dreadful is the South Island. Great strength and skill and wit only will bring thee back from that place.;
-║type:npc,character:woman,name:Some Gal,x:11,y:15,walk:true═action:Talk;say:Please, save us from the minions of the Dragonlord.;
-║type:npc,character:man,name:Some Guy,x:5,y:12,walk:true═action:Talk;say:Art thou the descendant of Erdrick? Hast thou any proof?;
-║type:npc,character:woman,name:Some Gal,x:12,y:1,walk:true═action:Talk;say:This bath cures rheumatism.;
+║type:npc,character:man,name:Some Guy,x:13,y:14,walk:true═action:Talk;
+    if:bools.gameWon=true;
+        say:Hurrah! Hurrah! Long live PLAYERNAME!;
+    else;
+        say:Dreadful is the South Island. Great strength and skill and wit only will bring thee back from that place.;
+║type:npc,character:woman,name:Some Gal,x:11,y:15,walk:true═action:Talk;
+    if:bools.gameWon=true;
+        say:Thou hast brought us peace, again.;
+    else;
+        say:Please, save us from the minions of the Dragonlord.;
+║type:npc,character:man,name:Some Guy,x:5,y:12,walk:true═action:Talk;
+    if:bools.gameWon=true;
+        say:Hurrah! Hurrah! Long live PLAYERNAME!;
+    endif;
+    if:inventory.Erdrick's Token=1;
+        say:Thou art the descendant of Erdrick!;
+    else;
+        say:Art thou the descendant of Erdrick? Hast thou any proof?;
+║type:npc,character:woman,name:Some Gal,x:12,y:1,walk:true═action:Talk;
+    if:bools.gameWon=true;
+        say:Thou hast brought us peace, again.;
+    else;
+        say:This bath cures rheumatism.;
 ║type:npc,character:door,name:door,x:7,y:12═visible:bools.door7:true═action:Door;if:player.keys>0;sub:player.keys=1;set:bools.door7=false;set:visible=false;else;say:Thou hast not a key to use.;
 ║type:npc,character:door,name:door,x:1,y:14═visible:bools.door8:true═action:Door;if:player.keys>0;sub:player.keys=1;set:bools.door8=false;set:visible=false;else;say:Thou hast not a key to use.;
 ║type:npc,character:trees,name:flute,x:9,y:6,blocks:false═visible:bools.chestFlute:true═action:Search;give:Fairy Flute;set:bools.chestFlute=false;set:visible=false;say:Thou hast searched the ground all about. Though hast discovered the Fairy Flute.;
-║type:npc,character:merchant,name:Innkeeper,x:19,y:4═action:Talk;say:Welcome to the Traveler’s Inn. Room and board is 20 GOLD per night.;═action:Inn;ask:Dost thou want a room?;═no:Inn;say:Okay.Good-bye, traveler.═yes:Inn;if:player.gold<20;say:Thou hast not enough gold.;else;sub:player.gold=20;setto:player.hp=playerMax.hp;setto:player.mp=playerMax.mp;say:Thou hast a good rest.;
-║type:npc,character:wiseguy,name:Old Talker,x:1,y:1═action:Talk;say:Though thou art as brave as thy ancestor, Hero, thou cannot defeat the great Dragonlord with such weapons. Thou shouldst come here again.;
-║type:npc,character:wiseguy,name:Old Talker,x:20,y:7,walk:true═action:Talk;say:In legends it is said that fairies know how to put Golem to sleep.
-║type:npc,character:wiseguy,name:Old Talker,x:2,y:12═action:Talk;ask:Hast thou found the flute?;═yes:Talk;say:Go to the town of Cantlin.;═no:Talk;say:Howard had it, but he went to Rimuldar and never returned.;
-║type:npc,character:wiseguy,name:Old Talker,x:20,y:19═action:Talk;say:This is the village of Kol.;
-║type:npc,character:soldier,name:Town Patrol,x:6,y:6,walk:true═action:Talk;say:Hast thou seen Nester? I think he may need help.;
-║type:npc,character:knight,name:Inn Patrol,x:12,y:9,walk:true═action:Talk;say:Golem is afraid of the music of the flute, so ’tis said.;
+║type:npc,character:merchant,name:Innkeeper,x:19,y:4═action:Talk;say:
+    if:bools.gameWon=true;
+        say:Hurrah! Hurrah! Long live PLAYERNAME!;
+    else;
+        Welcome to the Traveler’s Inn. Room and board is 20 GOLD per night.;═action:Inn;ask:Dost thou want a room?;═no:Inn;say:Okay.Good-bye, traveler.═yes:Inn;if:player.gold<20;say:Thou hast not enough gold.;else;sub:player.gold=20;setto:player.hp=playerMax.hp;setto:player.mp=playerMax.mp;say:Thou hast a good rest.;
+║type:npc,character:wiseguy,name:Old Talker,x:1,y:1═action:Talk;say:
+    if:bools.gameWon=true;
+        say:Thou hast brought us peace, again.;
+    else;
+        Though thou art as brave as thy ancestor, PLAYERNAME, thou cannot defeat the great Dragonlord with such weapons. Thou shouldst come here again.;
+║type:npc,character:wiseguy,name:Old Talker,x:20,y:7,walk:true═action:Talk;
+    if:bools.gameWon=true;
+        say:Hurrah! Hurrah! Long live PLAYERNAME!;
+    else;
+        say:In legends it is said that fairies know how to put Golem to sleep.
+║type:npc,character:wiseguy,name:Old Talker,x:2,y:12═action:Talk;
+    if:bools.gameWon=true;
+        say:Thou hast brought us peace, again.;
+    else;
+        ask:Hast thou found the flute?;═yes:Talk;say:Go to the town of Cantlin.;═no:Talk;say:Howard had it, but he went to Rimuldar and never returned.;
+║type:npc,character:wiseguy,name:Old Talker,x:20,y:19═action:Talk;
+    if:bools.gameWon=true;
+        say:Hurrah! Hurrah! Long live PLAYERNAME!;
+    else;
+        say:This is the village of Kol.;
+║type:npc,character:soldier,name:Town Patrol,x:6,y:6,walk:true═action:Talk;
+    if:bools.gameWon=true;
+        say:Thou hast brought us peace, again.;
+    else;
+        say:Hast thou seen Nester? I think he may need help.;
+║type:npc,character:knight,name:Inn Patrol,x:12,y:9,walk:true═action:Talk;
+    if:bools.gameWon=true;
+        say:Hurrah! Hurrah! Long live PLAYERNAME!;
+    else;
+        say:Golem is afraid of the music of the flute, so ’tis said.;
 ║type:exit,exit:edge,map:outworld,x:-1,y:-1,targetX:107,targetY:13
 ║type:music═DragonWarriorVillage

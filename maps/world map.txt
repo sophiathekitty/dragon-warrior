@@ -137,7 +137,7 @@ kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
 ║type:exit,exit:stairs,map:rimuldar,x:104,y:75,targetX:29,targetY:14
 ║type:exit,exit:stairs,map:cantlin,x:77,y:104,targetX:14,targetY:0
 ║type:exit,exit:stairs,map:charlockA,x:51,y:51,targetX:9,targetY:19
-║type:npc,character:water,name:bridge to charlock,x:67,y:52═visible:bools.bridge:true═action:Raindrop;if:inventory.Rainbow Drop=1;take:Rainbow Drop;set:bools.bridge=false;set:visible=false;say:Hero held the Rainbow Drop toward the sky.;else;say:Thou looks across the water.;
+║type:npc,character:water,name:bridge to charlock,x:67,y:52═visible:bools.bridge:true═action:Raindrop;if:inventory.Rainbow Drop=1;take:Rainbow Drop;set:bools.bridge=false;set:visible=false;say:PLAYERNAME held the Rainbow Drop toward the sky.;else;say:Thou looks across the water.;
 ║type:npc,character:swamp,name:token,x:86,y:116,blocks:false═visible:bools.chestSwampToken:true═action:Search;give:Erdrick's Token;set:bools.chestSwampToken=false;set:visible=false;say:Thou hast searched the ground all about. Though hast discovered the Erdrick’s Token.;
 ║type:npc,character:door,name:door,x:77,y:102═visible:bools.golem:true
 ═action:Door;

@@ -305,6 +305,9 @@ effect:cast_hurtmore
     run:RandomEncounter;
 
 ═action:RandomEncounter;
+    if:bools.gameWon=true;
+        exit;
+    endif;
     if:ints.fairySteps>0;
         exit;
     endif;
@@ -534,16 +537,16 @@ effect:cast_hurtmore
 
 ═action:fairy_flute;
     if:enemy.name=Golem;
-        set:enemy.status=sleep;
-        say:Hero blew the Fairies’ Flute. Quietly Golem closes his eyes and settles into sleep.;
+        csay:PLAYERNAME blew the Fairies’ Flute. The Golem hast been pacified.;
+        run:WinEncounter;
     else;
-        say:Hero blew the Fairies’ Flute. But nothing happened.;
+        say:PLAYERNAME blew the Fairies’ Flute. But nothing happened.;
 
 
 ═action:distance_from_castle;
     setto:ints.nextLevel=playerMax.xp;
     sub:ints.nextLevel=player.xp;
-    csay:Heed my voice, Hero, for this is Gwaelin. To reach the next level thou must raise thy Experience Points by ints.nextLevel. My hope is with thee. From where thou art now, my castle lies;
+    csay:Heed my voice, PLAYERNAME, for this is Gwaelin. To reach the next level thou must raise thy Experience Points by ints.nextLevel. My hope is with thee. From where thou art now, my castle lies;
     set:bools.and=false;
     if:ints.north>0;
         csay:ints.north south.;
@@ -561,7 +564,7 @@ effect:cast_hurtmore
         run:maybe_and;
         csay:ints.east west.;
     endif;
-    say:I love thee, Hero.;
+    say:I love thee, PLAYERNAME.;
 
 ═action:maybe_and;
     if:bools.and=true;

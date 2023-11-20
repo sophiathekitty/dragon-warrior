@@ -1,4 +1,4 @@
-save:default═
+save:Adventure Log═
 level:1,
 hp:15,mp:0,
 strength:4,
@@ -30,7 +30,7 @@ y:5═
 door1:true,intro:false═
 fairySteps:20,nextLevel:7
 
-║save:Log 1═
+║save:Adventure Log 1═
 level:1,
 hp:15,mp:0,
 strength:4,
@@ -62,7 +62,7 @@ y:5═
 door1:true,intro:false═
 fairySteps:20,nextLevel:7
 
-║save:Log 2═
+║save:Adventure Log 2═
 level:1,
 hp:15,mp:0,
 strength:4,
@@ -94,7 +94,7 @@ y:5═
 door1:true,intro:false═
 fairySteps:20,nextLevel:7
 
-║save:Log 3═
+║save:Adventure Log 3═
 level:1,
 hp:15,mp:0,
 strength:4,
