@@ -106,7 +106,7 @@ effect:herb═
 
 name:Wings,
 cost:70,
-effect:return_home═
+effect:use_wings═
 
 name:Torch,
 cost:8,
@@ -514,9 +514,15 @@ effect:cast_hurtmore
     endif;
     run:CalculatePlayerStats;
 
+═action:use_wings;
+    if:map.name=outworld;
+        take:Wings;
+        go:outworld,47,45;
+        say:PLAYERNAME threw The Wings of the Wyvern up into the sky.;
 ═action:return_home;
     if:map.name=outworld;
         go:outworld,47,45;
+        say:PLAYERNAME zooms up into the sky.;
 
 ═action:torch;
     set:map.darkRadius=2;

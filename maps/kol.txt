@@ -60,11 +60,11 @@ ff1ff17171111g11f88c8888
 ║type:npc,character:door,name:door,x:7,y:12═visible:bools.door7:true═action:Door;if:player.keys>0;sub:player.keys=1;set:bools.door7=false;set:visible=false;else;say:Thou hast not a key to use.;
 ║type:npc,character:door,name:door,x:1,y:14═visible:bools.door8:true═action:Door;if:player.keys>0;sub:player.keys=1;set:bools.door8=false;set:visible=false;else;say:Thou hast not a key to use.;
 ║type:npc,character:trees,name:flute,x:9,y:6,blocks:false═visible:bools.chestFlute:true═action:Search;give:Fairy Flute;set:bools.chestFlute=false;set:visible=false;say:Thou hast searched the ground all about. Though hast discovered the Fairy Flute.;
-║type:npc,character:merchant,name:Innkeeper,x:19,y:4═action:Talk;say:
+║type:npc,character:merchant,name:Innkeeper,x:19,y:4═action:Talk;
     if:bools.gameWon=true;
         say:Hurrah! Hurrah! Long live PLAYERNAME!;
     else;
-        Welcome to the Traveler’s Inn. Room and board is 20 GOLD per night.;═action:Inn;ask:Dost thou want a room?;═no:Inn;say:Okay.Good-bye, traveler.═yes:Inn;if:player.gold<20;say:Thou hast not enough gold.;else;sub:player.gold=20;setto:player.hp=playerMax.hp;setto:player.mp=playerMax.mp;say:Thou hast a good rest.;
+        say:Welcome to the Traveler’s Inn. Room and board is 20 GOLD per night.;═action:Inn;ask:Dost thou want a room?;═no:Inn;say:Okay.Good-bye, traveler.═yes:Inn;if:player.gold<20;say:Thou hast not enough gold.;else;sub:player.gold=20;setto:player.hp=playerMax.hp;setto:player.mp=playerMax.mp;say:Thou hast a good rest.;
 ║type:npc,character:wiseguy,name:Old Talker,x:1,y:1═action:Talk;say:
     if:bools.gameWon=true;
         say:Thou hast brought us peace, again.;

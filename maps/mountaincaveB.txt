@@ -45,4 +45,5 @@ ffffffffffffffff║type:exit,exit:edge,map:mountaincaveA,x:1,y:1,targetX:1,targe
     set:bools.chestMountainCave5=false;
     set:visible=false;
     say:Thou hast gained a 17 gold.;
-║type:music═DragonWarriorCave
+║type:encounters,id:0═Warlock,Poltergeist,Drakeema,Droll,Skeleton
+║type:encounterMap═0║type:music═DragonWarriorCave

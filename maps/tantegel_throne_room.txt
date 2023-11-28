@@ -67,6 +67,14 @@ type:map,edges:0═000000000000
     say:If thou hast collected all the Treasure Chests, a key will be found. Once used, the key will disappear, but the door will be open and thou may pass through.;
 ║type:npc,character:knight,name:Sir Walking,x:7,y:7,direction:up,walk:true═action:Talk;
     ask:Dost thou know about Princess Gwaelin?;═no:Talk;say:Half a year now hath passed since the Princess was kidnapped by the enemy. Never does the King speak of it, but he must be suffering much. PLAYERNAME, please save the Princess.;═yes:Talk;say:PLAYERNAME, please save the Princess.;
+═action:Dev;
+    ask:Would thoust like to enable DevMode?;
+═yes:Dev;
+    set:bools.devMode=true;
+    say:DevMode hast been enabled. Leave this room and return to access the dev chest.;
+═no:Dev;
+    set:bools.devMode=false;
+    say:DevMode hast been disabled. The dev chest will disappear when thy leave this room.;
 ║type:npc,character:chest,name:chest,x:5,y:5═visible:bools.chest1:true═action:Take;
     if:ints.introChests=0;
         set:ints.introChests=1;
@@ -91,7 +99,8 @@ set:visible=false;say:thou hast gained a key;
 ║type:npc,character:door,name:door,x:5,y:8═visible:bools.door1:true═action:Door;if:player.keys>0;sub:player.keys=1;set:bools.door1=false;set:bools.intro2=true;set:visible=false;else;say:Thou hast not a key to use.;
 ║type:exit,exit:stairs,map:tantegel,x:9,y:9,targetX:7,targetY:7
 ║type:exit,exit:edge,map:outworld,x:-1,y:-1,targetX:46,targetY:46
-║type:npc,character:chest,name:cheats,x:2,y:9═action:Princess;set:bools.rescued=true;say:The Princess should return if thou leave this room and come back.;═action:Keys;add:player.keys=10;say:thou hast gained 10 keys;═action:Golds;add:player.gold=100000;say:thou hast gained 100,000 gold;
+║type:npc,character:chest,name:cheats,x:2,y:9═visible:bools.devMode:false
+═action:Princess;set:bools.rescued=true;say:The Princess should return if thou leave this room and come back.;═action:Keys;add:player.keys=10;say:thou hast gained 10 keys;═action:Golds;add:player.gold=100000;say:thou hast gained 100,000 gold;
 ═action:No Encounters;
     set:ints.fairySteps=1000000;
 ═action:Harp;

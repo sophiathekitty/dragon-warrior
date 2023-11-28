@@ -24,4 +24,5 @@ ffffffffffffffff║type:exit,exit:edge,map:outworld,x:1,y:8,targetX:32,targetY:6
     set:bools.chestMountainCave1=false;
     set:visible=false;
     say:Thou hast gained a Herb;
-║type:music═DragonWarriorCave
+║type:encounters,id:0═Druin,Ghost,Magician,Scorpion
+║type:encounterMap═0║type:music═DragonWarriorCave
