@@ -145,21 +145,21 @@ kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
 ═encounter:Door;
     set:bools.golem=false;
     set:visible=false;
-║type:encounters,id:0═Slime,Red Slime
-║type:encounters,id:1═Slime,Red Slime,Drakee
-║type:encounters,id:2═Slime,Red Slime,Drakee,Ghost
-║type:encounters,id:3═Red Slime,Drakee,Ghost,Magician
-║type:encounters,id:4═Magidrakee,Ghost,Magician,Scorpion
-║type:encounters,id:5═Magidrakee,Ghost,Magician,Scorpion,Skeleton
-║type:encounters,id:6═Magidrakee,Scorpion,Skeleton,Wolf,Warlock
-║type:encounters,id:7═Knight,Demon Knight,Magiwyvern,Starwyvern,Werewolf
-║type:encounters,id:8═Skeleton,Warlock,Metal Scorpion,Wolf
-║type:encounters,id:9═Metal Scorpion,Wolflord,Wraith,Gold Man
-║type:encounters,id:a═Skeleton,Gold Man,Wolflord,Wyvern
-║type:encounters,id:b═Wyvern,Rogue Scorpion,Wraith Knight,Knight,Demon Knight
-║type:encounters,id:c═Wraith Knight,Knight,Demon Knight,Magiwyvern,Metal Slime
-║type:encounters,id:d═Demon Knight,Starwyvern,Werewolf,Wizard,Green Dragon
-║type:encounters,id:e═Wraith,Wolflord,Gold Man,Wyvern
+║type:encounters,id:0═Slime,Red Slime,Red Slime,Slime,Slime
+║type:encounters,id:1═Slime,Red Slime,Drakee,Drakee,Red Slime
+║type:encounters,id:2═Slime,Red Slime,Drakee,Ghost,Ghost,Drakee
+║type:encounters,id:3═Red Slime,Drakee,Ghost,Magician,Magician
+║type:encounters,id:4═Magidrakee,Ghost,Magician,Scorpion,Scorpion
+║type:encounters,id:5═Magidrakee,Ghost,Magician,Scorpion,Skeleton,Skeleton
+║type:encounters,id:6═Magidrakee,Scorpion,Skeleton,Wolf,Warlock,Warlock,Wolf,Wolf
+║type:encounters,id:7═Knight,Demon Knight,Magiwyvern,Starwyvern,Werewolf,Werewolf
+║type:encounters,id:8═Skeleton,Warlock,Metal Scorpion,Wolf,Wolf
+║type:encounters,id:9═Metal Scorpion,Wolflord,Wraith,Gold Man,Gold Man
+║type:encounters,id:a═Skeleton,Gold Man,Wolflord,Wyvern,Wyvern
+║type:encounters,id:b═Wyvern,Rogue Scorpion,Wraith Knight,Knight,Demon Knight,Demon Knight
+║type:encounters,id:c═Wraith Knight,Knight,Demon Knight,Magiwyvern,Metal Slime,Metal Slime
+║type:encounters,id:d═Demon Knight,Starwyvern,Werewolf,Wizard,Green Dragon,Green Dragon
+║type:encounters,id:e═Wraith,Wolflord,Gold Man,Wyvern,Wyvern
 ║type:encounterMap═33223545
 32123345
 41001345

@@ -94,6 +94,6 @@ ffffffffffffzzzz║type:exit,exit:H,map:charlockB,x:9,y:1,targetX:16,targetY:2
 ║type:exit,exit:Loop,map:charlockC,x:9,y:62,targetX:2,targetY:62
 ║type:exit,exit:edge,map:outworld,x:-1,y:-1,targetX:51,targetY:51
 ║type:npc,character:chest,name:chest,x:6,y:6═visible:bools.charlockChestSword:true═action:Take;give:Erdrick's Sword;bools.charlockChestSword=false;set:visible=false;say:thou hast gained Erdrick's Sword;
-║type:encounters,id:0═Stoneman,Wizard,Blue Dragon,Axe Knight
+║type:encounters,id:0═Stoneman,Wizard,Blue Dragon,Axe Knight,Axe Knight
 ║type:encounterMap═0
 ║type:music═DragonWarriorCave

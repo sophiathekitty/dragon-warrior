@@ -24,6 +24,6 @@ ddddddddf11fdddddddd║type:exit,exit:edge,map:outworld,x:-1,y:-1,targetX:51,tar
 ║type:npc,character:door,name:door,x:4,y:8═visible:bools.charlockDoor1:true═action:Door;if:player.keys>0;sub:player.keys=1;set:bools.charlockDoor1=false;set:visible=false;else;say:Thou hast not a key to use.;
 ║type:npc,character:door,name:door,x:15,y:8═visible:bools.charlockDoor2:true═action:Door;if:player.keys>0;sub:player.keys=1;set:bools.charlockDoor2=false;set:visible=false;else;say:Thou hast not a key to use.;
 ║type:npc,character:floor,name:secret,x:10,y:1═visible:bools.charlockDoor3:true═action:Search;set:bools.charlockDoor3=false;set:visible=false;say:Thou hast found a secret passage.;
-║type:encounters,id:0═Werewolf,Wizard,Starwyvern,Axe Knight, Green Dragon
+║type:encounters,id:0═Werewolf,Wizard,Starwyvern,Axe Knight,Green Dragon,Green Dragon
 ║type:encounterMap═0
 ║type:music═DragonWarriorCave

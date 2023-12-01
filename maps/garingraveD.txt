@@ -11,6 +11,6 @@ ffffff1ffffff
 fffffffffffff║type:exit,exit:G,map:garingraveC,x:1,y:5,targetX:10,targetY:6
 ║type:exit,exit:edge,map:outworld,x:-1,y:-1,targetX:5,targetY:5
 ║type:exit,exit:H,map:garingraveC,x:6,y:5,targetX:11,targetY:10
-║type:encounters,id:0═Wolflord,Wraith Knight,Specter,Druinlord,Drollmagi
+║type:encounters,id:0═Wolflord,Wraith Knight,Specter,Druinlord,Drollmagi,Drollmagi
 ║type:encounterMap═0
 ║type:music═DragonWarriorCave

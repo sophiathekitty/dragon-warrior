@@ -527,9 +527,11 @@ effect:cast_hurtmore
 ═action:torch;
     set:map.darkRadius=2;
     take:Torch;
+    say:PLAYERNAME lights a torch.;
 
 ═action:avoid_encounters;
     set:ints.fairySteps=128;
+    say:Thou dost unleash a truly repulsive scent.;
 
 ═action:herb;
     take:Herb;
@@ -537,7 +539,8 @@ effect:cast_hurtmore
     add:player.hp=ints.restore;
     if:player.hp>playerMax.hp;
         setto:player.hp=playerMax.hp;
-
+    endif;
+    say:Thou eats the herb. ints.restore health hast been restored.;
 ═action:silver_harp;
     encounter:Slime,Red Slime,Drakee,Ghost,Magician,Scorpion;
 
@@ -677,7 +680,7 @@ effect:cast_hurtmore
         say:ENEMYNAME art asleep.;
     
 ═action:WakeEnemy;
-    rand:ints.wake=5,100;
+    rand:ints.wake=5,500;
     if:ints.wake>25;
         exit;
     endif;
@@ -698,6 +701,7 @@ effect:cast_hurtmore
         div:ints.defense=2;
     else;
         csay:Excellent move!;
+        set:ints.defense=0;
     endif;
     sub:ints.damage=ints.defense;
     div:ints.damage=4;
@@ -765,7 +769,7 @@ effect:cast_hurtmore
         div:ints.damage=3;
     endif;
     if:playerGear.armor=Erdrick's Armor;
-        div:ints.damage=3;
+        div:ints.damage=5;
     endif;
     csay:ENEMYNAME cast hurt! Thou hast lost ints.damage hp.;
     run:DamagePlayer;
@@ -792,29 +796,29 @@ effect:cast_hurtmore
         div:ints.damage=3;
     endif;
     if:playerGear.armor=Erdrick's Armor;
-        div:ints.damage=3;
+        div:ints.damage=4;
     endif;
     csay:ENEMYNAME cast hurtmore! Thou hast lost ints.damage hp.;
     run:DamagePlayer;
 
 ═action:breath;
-    rand:ints.damage=16,23;
+    rand:ints.damage=26,43;
     if:playerGear.armor=Magic Armor;
         div:ints.damage=3;
     endif;
     if:playerGear.armor=Erdrick's Armor;
-        div:ints.damage=3;
+        div:ints.damage=4;
     endif;
     csay:ENEMYNAME hast horrid breath! Thou hast lost ints.damage hp.;
     run:DamagePlayer;
 
 ═action:strongbreath;
-    rand:ints.damage=65,72;
+    rand:ints.damage=45,72;
     if:playerGear.armor=Magic Armor;
         div:ints.damage=3;
     endif;
     if:playerGear.armor=Erdrick's Armor;
-        div:ints.damage=3;
+        div:ints.damage=4;
     endif;
     csay:ENEMYNAME hast breath of fire! Thou hast lost ints.damage hp.;
     run:DamagePlayer;
